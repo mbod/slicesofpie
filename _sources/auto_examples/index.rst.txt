@@ -123,6 +123,26 @@ Seaborn plotting examples
    :hidden:
 
    /auto_examples/02_plotting/plot_seaborn2
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="* this is what this is for">
+
+.. only:: html
+
+    .. figure:: /auto_examples/02_plotting/images/thumb/sphx_glr_plot_seaborn3_thumb.png
+
+        :ref:`sphx_glr_auto_examples_02_plotting_plot_seaborn3.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/02_plotting/plot_seaborn3
 .. raw:: html
 
     <div style='clear:both'></div>
