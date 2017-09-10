@@ -24,7 +24,7 @@ Basic plotting
 
     plt.plot(range(100))
 
-**Total running time of the script:** ( 0 minutes  0.080 seconds)
+**Total running time of the script:** ( 0 minutes  0.050 seconds)
 
 
 

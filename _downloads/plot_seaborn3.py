@@ -2,7 +2,7 @@
 Another plotting example
 ========================
 
-* this is what this is for
+* this is what this is for (Ralf: Make a plot and learn)
 
 '''
 

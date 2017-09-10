@@ -35,7 +35,7 @@ Boxplot example
 
     sns.boxplot(data_df)
 
-**Total running time of the script:** ( 0 minutes  0.812 seconds)
+**Total running time of the script:** ( 0 minutes  1.236 seconds)
 
 
 

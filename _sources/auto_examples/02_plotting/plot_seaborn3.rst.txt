@@ -6,7 +6,7 @@
 Another plotting example
 ========================
 
-* this is what this is for
+* this is what this is for (Ralf: Make a plot and learn)
 
 
 
@@ -53,7 +53,7 @@ Another plotting example
     plt.setp(f.axes, yticks=[])
     plt.tight_layout(h_pad=3)
 
-**Total running time of the script:** ( 0 minutes  5.372 seconds)
+**Total running time of the script:** ( 0 minutes  0.897 seconds)
 
 
 
