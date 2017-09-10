@@ -1,0 +1,4941 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Here is the pruned network completed by participant in Friendly Ocean &#8212; slicesofpie 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Notes, examples, tutorials and ideas for computational social sicnce with a strong Pythonic flavor!" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header" role="banner">
+        <a href="index.html">
+          <img class="logo" src="_static/logo.png" alt="Logo"/>
+        </a>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">Notes, examples, tutorials and ideas for computational social sicnce with a strong Pythonic flavor!</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 7ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>%matplotlib inline
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import networkx as nx
+import json
+import os
+import matplotlib.pyplot as plt
+import pandas as pd
+import re
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_nets = [f for f in os.listdir(os.path.join(&#39;data&#39;,&#39;facebook_networks&#39;)) if f.endswith(&#39;.graphml&#39;)]
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [103]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fo_nets = [f for f in os.listdir(os.path.join(&#39;data&#39;,&#39;friendly_networks&#39;)) if re.match(&#39;dp_DP\d+.json&#39;,f)]
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>def build_network(net_path, summary_stats=False, plot=False):
+    &#39;&#39;&#39;
+    Create two networks from Friendly Ocean or Facebook ego network log
+        1. friend-to-friend network
+        2. ego network (#1 with EGO added)
+
+    param(s):
+        net_path - file path to either JSON log from Friendly Ocean or graphml file from Facebook scraper
+
+    returns:
+        the stats calcuated on the network
+    &#39;&#39;&#39;
+
+    pID=re.search(&#39;(DP\d+)(.json|_network)&#39;, net_path).group(1)
+
+    print(&#39;Processing&#39;,pID)
+
+    if net_path.endswith(&#39;.json&#39;):
+
+
+        net_json = json.load(open(net_path))
+
+        NG = nx.Graph()
+
+        # add nodes and associated data
+        for friend in net_json[&#39;friends&#39;]:
+            NG.add_node(friend[&#39;friendNumber&#39;], friend)
+
+        # add f2f links
+        for link in net_json[&#39;links&#39;]:
+            NG.add_edge(link[&#39;target&#39;], link[&#39;source&#39;])
+
+    elif net_path.endswith(&#39;.graphml&#39;):
+        NG = nx.read_graphml(net_path)
+        if len(NG.nodes())==0:
+            return {&#39;pID&#39;: pID}
+    else:
+        return
+
+    # create EGO network by adding EGO with links to all friends
+    NG_ego = NG.copy()
+    for n in NG_ego.nodes():
+        NG_ego.add_edge(&#39;EGO&#39;,n)
+
+        if NG_ego.node[n].get(&#39;strength&#39;) is None:
+            NG_ego.node[n][&#39;strength&#39;]=4
+
+    stats = {
+        &#39;pID&#39;: pID,
+        &#39;degree&#39;: len(NG.nodes()),
+        &#39;density&#39;: nx.density(NG),
+        &#39;ego_betweenness&#39;: nx.betweenness_centrality(NG_ego)[&#39;EGO&#39;],
+        &#39;transitivity&#39;: nx.transitivity(NG_ego)
+    }
+
+    if summary_stats:
+        for stat, value in stats.items():
+            print(stat.title(), value)
+
+    if plot:
+        #nx.draw(NG)
+        #plt.show()
+        nx.draw(NG_ego,
+                    node_color=[&#39;white&#39; if n==&#39;EGO&#39; else &#39;#B0B0FF&#39; for n in NG_ego.nodes()],
+                    node_size=[ 500 if n==&#39;EGO&#39; else NG_ego.node[n][&#39;strength&#39;]*50 for n in NG_ego.nodes()]
+               )
+
+    return stats
+</pre></div>
+</div>
+</div>
+<div class="section" id="Here-is-the-pruned-network-completed-by-participant-in-Friendly-Ocean">
+<h1>Here is the pruned network completed by participant in Friendly Ocean<a class="headerlink" href="#Here-is-the-pruned-network-completed-by-participant-in-Friendly-Ocean" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [95]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>net_path = os.path.join(&#39;data&#39;,&#39;friendly_networks&#39;, &#39;dp_DP140.json&#39;)
+build_network(net_path, summary_stats=True, plot=True)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Density 0.16923076923076924
+Transitivity 0.4586717630195891
+Ego_Betweenness 0.6316514041514042
+Degree 40
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[95]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>{&#39;degree&#39;: 40,
+ &#39;density&#39;: 0.16923076923076924,
+ &#39;ego_betweenness&#39;: 0.6316514041514042,
+ &#39;transitivity&#39;: 0.4586717630195891}
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/test_6_2.png" src="_images/test_6_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Here-is-the-full-ego-network-for-same-participant-pulled-from-Facebook">
+<h1>Here is the full ego network for same participant pulled from Facebook<a class="headerlink" href="#Here-is-the-full-ego-network-for-same-participant-pulled-from-Facebook" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [90]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>net_path = os.path.join(&#39;data&#39;,&#39;facebook_networks&#39;, &#39;DP140_network.graphml&#39;)
+build_friendly_network(net_path, summary_stats=True, plot=True)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Density 0.0949161518093557
+Transitivity 0.5490839862923672
+Ego_Betweenness 0.6020584086163108
+Degree 825
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[90]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>{&#39;degree&#39;: 825,
+ &#39;density&#39;: 0.0949161518093557,
+ &#39;ego_betweenness&#39;: 0.6020584086163108,
+ &#39;transitivity&#39;: 0.5490839862923672}
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/test_8_2.png" src="_images/test_8_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Create-a-data-frame-with-network-statistics-for-the-Friendly-Ocean-networks">
+<h1>Create a data frame with network statistics for the Friendly Ocean networks<a class="headerlink" href="#Create-a-data-frame-with-network-statistics-for-the-Friendly-Ocean-networks" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [104]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>data=[]
+for n in fo_nets:
+    if n[3:5]==&#39;DP&#39;:
+        net_path = os.path.join(&#39;data&#39;,&#39;friendly_networks&#39;, n)
+        pID=n[3:-5]
+        row_data=build_network(net_path)
+        row_data.update({&#39;pID&#39;:pID})
+        data.append(row_data)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [105]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fo_df=pd.DataFrame(data)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [106]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fo_df
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[106]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>degree</th>
+      <th>density</th>
+      <th>ego_betweenness</th>
+      <th>pID</th>
+      <th>transitivity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>41</td>
+      <td>0.171951</td>
+      <td>0.549836</td>
+      <td>DP1</td>
+      <td>0.463023</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>41</td>
+      <td>0.274390</td>
+      <td>0.461024</td>
+      <td>DP10</td>
+      <td>0.638071</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>41</td>
+      <td>0.045122</td>
+      <td>0.925316</td>
+      <td>DP100</td>
+      <td>0.200743</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>40</td>
+      <td>0.041026</td>
+      <td>0.936752</td>
+      <td>DP103</td>
+      <td>0.137255</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>40</td>
+      <td>0.067949</td>
+      <td>0.877094</td>
+      <td>DP107</td>
+      <td>0.259358</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>40</td>
+      <td>0.173077</td>
+      <td>0.675849</td>
+      <td>DP11</td>
+      <td>0.584400</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>0.066667</td>
+      <td>0.933333</td>
+      <td>DP110</td>
+      <td>0.176471</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>41</td>
+      <td>0.182927</td>
+      <td>0.747966</td>
+      <td>DP111</td>
+      <td>0.643973</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>40</td>
+      <td>0.082051</td>
+      <td>0.869017</td>
+      <td>DP113</td>
+      <td>0.311224</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>49</td>
+      <td>0.234694</td>
+      <td>0.699264</td>
+      <td>DP115</td>
+      <td>0.740189</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>51</td>
+      <td>0.080000</td>
+      <td>0.856937</td>
+      <td>DP117</td>
+      <td>0.319767</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>41</td>
+      <td>0.064634</td>
+      <td>0.885955</td>
+      <td>DP118</td>
+      <td>0.199454</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>79</td>
+      <td>0.018825</td>
+      <td>0.962458</td>
+      <td>DP119</td>
+      <td>0.077080</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>40</td>
+      <td>0.108974</td>
+      <td>0.826668</td>
+      <td>DP121</td>
+      <td>0.396529</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>41</td>
+      <td>0.021951</td>
+      <td>0.964634</td>
+      <td>DP122</td>
+      <td>0.064699</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>40</td>
+      <td>0.265385</td>
+      <td>0.628484</td>
+      <td>DP128</td>
+      <td>0.734801</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>40</td>
+      <td>0.047436</td>
+      <td>0.928184</td>
+      <td>DP134</td>
+      <td>0.189409</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>41</td>
+      <td>0.145122</td>
+      <td>0.693495</td>
+      <td>DP136</td>
+      <td>0.411183</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>40</td>
+      <td>0.121795</td>
+      <td>0.782434</td>
+      <td>DP137</td>
+      <td>0.405612</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>51</td>
+      <td>0.040000</td>
+      <td>0.933595</td>
+      <td>DP138</td>
+      <td>0.155239</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>44</td>
+      <td>0.169133</td>
+      <td>0.634141</td>
+      <td>DP139</td>
+      <td>0.458023</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>51</td>
+      <td>0.075294</td>
+      <td>0.897573</td>
+      <td>DP14</td>
+      <td>0.443404</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>40</td>
+      <td>0.169231</td>
+      <td>0.631651</td>
+      <td>DP140</td>
+      <td>0.458672</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>41</td>
+      <td>0.074390</td>
+      <td>0.856057</td>
+      <td>DP143</td>
+      <td>0.255422</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>43</td>
+      <td>0.027685</td>
+      <td>0.951089</td>
+      <td>DP144</td>
+      <td>0.083582</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>20</td>
+      <td>0.005263</td>
+      <td>0.994737</td>
+      <td>DP146</td>
+      <td>0.015625</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>40</td>
+      <td>0.039744</td>
+      <td>0.946474</td>
+      <td>DP147</td>
+      <td>0.151648</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>41</td>
+      <td>0.078049</td>
+      <td>0.869106</td>
+      <td>DP151</td>
+      <td>0.267902</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>40</td>
+      <td>0.005128</td>
+      <td>0.993590</td>
+      <td>DP152</td>
+      <td>0.015190</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>63</td>
+      <td>0.019969</td>
+      <td>0.972436</td>
+      <td>DP153</td>
+      <td>0.075391</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>47</td>
+      <td>0.070305</td>
+      <td>0.899848</td>
+      <td>DP70</td>
+      <td>0.302051</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>45</td>
+      <td>0.110101</td>
+      <td>0.749531</td>
+      <td>DP72</td>
+      <td>0.378932</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>41</td>
+      <td>0.171951</td>
+      <td>0.753646</td>
+      <td>DP73</td>
+      <td>0.590300</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>52</td>
+      <td>0.074661</td>
+      <td>0.873305</td>
+      <td>DP75</td>
+      <td>0.322384</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>40</td>
+      <td>0.071795</td>
+      <td>0.892927</td>
+      <td>DP750</td>
+      <td>0.283117</td>
+    </tr>
+    <tr>
+      <th>300</th>
+      <td>40</td>
+      <td>0.052564</td>
+      <td>0.912863</td>
+      <td>DP757</td>
+      <td>0.189759</td>
+    </tr>
+    <tr>
+      <th>301</th>
+      <td>40</td>
+      <td>0.116667</td>
+      <td>0.746325</td>
+      <td>DP76</td>
+      <td>0.373096</td>
+    </tr>
+    <tr>
+      <th>302</th>
+      <td>40</td>
+      <td>0.124359</td>
+      <td>0.748184</td>
+      <td>DP77</td>
+      <td>0.419476</td>
+    </tr>
+    <tr>
+      <th>303</th>
+      <td>41</td>
+      <td>0.076829</td>
+      <td>0.870955</td>
+      <td>DP78</td>
+      <td>0.264120</td>
+    </tr>
+    <tr>
+      <th>304</th>
+      <td>49</td>
+      <td>0.031463</td>
+      <td>0.945082</td>
+      <td>DP787</td>
+      <td>0.109050</td>
+    </tr>
+    <tr>
+      <th>305</th>
+      <td>41</td>
+      <td>0.065854</td>
+      <td>0.872744</td>
+      <td>DP79</td>
+      <td>0.262376</td>
+    </tr>
+    <tr>
+      <th>306</th>
+      <td>43</td>
+      <td>0.086379</td>
+      <td>0.870743</td>
+      <td>DP792</td>
+      <td>0.415640</td>
+    </tr>
+    <tr>
+      <th>307</th>
+      <td>41</td>
+      <td>0.024390</td>
+      <td>0.958943</td>
+      <td>DP8</td>
+      <td>0.076923</td>
+    </tr>
+    <tr>
+      <th>308</th>
+      <td>40</td>
+      <td>0.103846</td>
+      <td>0.855504</td>
+      <td>DP80</td>
+      <td>0.397189</td>
+    </tr>
+    <tr>
+      <th>309</th>
+      <td>40</td>
+      <td>0.126923</td>
+      <td>0.774385</td>
+      <td>DP808</td>
+      <td>0.434090</td>
+    </tr>
+    <tr>
+      <th>310</th>
+      <td>45</td>
+      <td>0.042424</td>
+      <td>0.924024</td>
+      <td>DP815</td>
+      <td>0.142381</td>
+    </tr>
+    <tr>
+      <th>311</th>
+      <td>42</td>
+      <td>0.049942</td>
+      <td>0.903930</td>
+      <td>DP82</td>
+      <td>0.160074</td>
+    </tr>
+    <tr>
+      <th>312</th>
+      <td>46</td>
+      <td>0.054106</td>
+      <td>0.911626</td>
+      <td>DP83</td>
+      <td>0.223358</td>
+    </tr>
+    <tr>
+      <th>313</th>
+      <td>40</td>
+      <td>0.058974</td>
+      <td>0.922009</td>
+      <td>DP84</td>
+      <td>0.234653</td>
+    </tr>
+    <tr>
+      <th>314</th>
+      <td>40</td>
+      <td>0.171795</td>
+      <td>0.744520</td>
+      <td>DP85</td>
+      <td>0.585019</td>
+    </tr>
+    <tr>
+      <th>315</th>
+      <td>40</td>
+      <td>0.121795</td>
+      <td>0.805287</td>
+      <td>DP86</td>
+      <td>0.404270</td>
+    </tr>
+    <tr>
+      <th>316</th>
+      <td>41</td>
+      <td>0.134146</td>
+      <td>0.816693</td>
+      <td>DP87</td>
+      <td>0.510841</td>
+    </tr>
+    <tr>
+      <th>317</th>
+      <td>44</td>
+      <td>0.060254</td>
+      <td>0.877819</td>
+      <td>DP88</td>
+      <td>0.192552</td>
+    </tr>
+    <tr>
+      <th>318</th>
+      <td>45</td>
+      <td>0.138384</td>
+      <td>0.727388</td>
+      <td>DP89</td>
+      <td>0.444072</td>
+    </tr>
+    <tr>
+      <th>319</th>
+      <td>40</td>
+      <td>0.284615</td>
+      <td>0.422810</td>
+      <td>DP9</td>
+      <td>0.596192</td>
+    </tr>
+    <tr>
+      <th>320</th>
+      <td>40</td>
+      <td>0.225641</td>
+      <td>0.518005</td>
+      <td>DP90</td>
+      <td>0.547696</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>41</td>
+      <td>0.196341</td>
+      <td>0.740519</td>
+      <td>DP92</td>
+      <td>0.754634</td>
+    </tr>
+    <tr>
+      <th>322</th>
+      <td>48</td>
+      <td>0.155142</td>
+      <td>0.780842</td>
+      <td>DP94</td>
+      <td>0.663524</td>
+    </tr>
+    <tr>
+      <th>323</th>
+      <td>44</td>
+      <td>0.163848</td>
+      <td>0.591125</td>
+      <td>DP96</td>
+      <td>0.451857</td>
+    </tr>
+    <tr>
+      <th>324</th>
+      <td>41</td>
+      <td>0.174390</td>
+      <td>0.703600</td>
+      <td>DP99</td>
+      <td>0.572059</td>
+    </tr>
+  </tbody>
+</table>
+<p>325 rows × 5 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [107]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fo_df.density.hist()
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[107]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1105b5f60&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/test_13_1.png" src="_images/test_13_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [108]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fo_df.ego_betweenness.hist()
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[108]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1105bd748&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/test_14_1.png" src="_images/test_14_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [109]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fo_df.transitivity.hist()
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[109]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1131c90b8&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/test_15_1.png" src="_images/test_15_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Create-a-data-frame-with-network-statistics-for-the-Facebook-networks">
+<h1>Create a data frame with network statistics for the Facebook networks<a class="headerlink" href="#Create-a-data-frame-with-network-statistics-for-the-Facebook-networks" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><strong>N.B. BUILDING THE FB NETWORKS IS VERY SLOW</strong></li>
+<li>below is some simple threading code to try and speed it up but need
+to add some caching and write out the CSV results</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_data=[]
+for n in fb_nets:
+    if n[0:2]==&#39;DP&#39;:
+        net_path = os.path.join(&#39;data&#39;,&#39;facebook_networks&#39;, n)
+        pID=n.split(&#39;_&#39;)[0]
+        row_data=build_network(net_path)
+        row_data.update({&#39;pID&#39;:pID})
+        fb_data.append(row_data)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [101]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_df = pd.DataFrame(fb_data)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [102]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_df
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[102]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>degree</th>
+      <th>density</th>
+      <th>ego_betweenness</th>
+      <th>pID</th>
+      <th>transitivity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>468.0</td>
+      <td>0.080885</td>
+      <td>0.726267</td>
+      <td>DP100</td>
+      <td>0.536453</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2079.0</td>
+      <td>0.064169</td>
+      <td>0.531821</td>
+      <td>DP101</td>
+      <td>0.416848</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>253.0</td>
+      <td>0.044513</td>
+      <td>0.860580</td>
+      <td>DP103</td>
+      <td>0.264781</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>DP106</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>610.0</td>
+      <td>0.125139</td>
+      <td>0.589101</td>
+      <td>DP107</td>
+      <td>0.540065</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>510.0</td>
+      <td>0.100058</td>
+      <td>0.607631</td>
+      <td>DP10</td>
+      <td>0.490692</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>33.0</td>
+      <td>0.068182</td>
+      <td>0.844381</td>
+      <td>DP110</td>
+      <td>0.189516</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>500.0</td>
+      <td>0.236385</td>
+      <td>0.397428</td>
+      <td>DP111</td>
+      <td>0.595433</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>338.0</td>
+      <td>0.077906</td>
+      <td>0.782939</td>
+      <td>DP113</td>
+      <td>0.499848</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>448.0</td>
+      <td>0.126508</td>
+      <td>0.538899</td>
+      <td>DP115</td>
+      <td>0.485601</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>418.0</td>
+      <td>0.071759</td>
+      <td>0.672140</td>
+      <td>DP116</td>
+      <td>0.375404</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1137.0</td>
+      <td>0.121124</td>
+      <td>0.594476</td>
+      <td>DP117</td>
+      <td>0.620841</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>458.0</td>
+      <td>0.067815</td>
+      <td>0.742762</td>
+      <td>DP118</td>
+      <td>0.401119</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>147.0</td>
+      <td>0.072966</td>
+      <td>0.671193</td>
+      <td>DP119</td>
+      <td>0.323185</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1103.0</td>
+      <td>0.078606</td>
+      <td>0.610205</td>
+      <td>DP11</td>
+      <td>0.589726</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>155.0</td>
+      <td>0.108002</td>
+      <td>0.751343</td>
+      <td>DP120</td>
+      <td>0.465716</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>155.0</td>
+      <td>0.108002</td>
+      <td>0.751343</td>
+      <td>DP121</td>
+      <td>0.465716</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>421.0</td>
+      <td>0.044656</td>
+      <td>0.861161</td>
+      <td>DP122</td>
+      <td>0.427944</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>16.0</td>
+      <td>0.108333</td>
+      <td>0.833333</td>
+      <td>DP123</td>
+      <td>0.243750</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>16.0</td>
+      <td>0.108333</td>
+      <td>0.833333</td>
+      <td>DP124</td>
+      <td>0.243750</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>54.0</td>
+      <td>0.592593</td>
+      <td>0.070373</td>
+      <td>DP127</td>
+      <td>0.710682</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>685.0</td>
+      <td>0.112276</td>
+      <td>0.569681</td>
+      <td>DP128</td>
+      <td>0.567216</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>739.0</td>
+      <td>0.075756</td>
+      <td>0.567758</td>
+      <td>DP129</td>
+      <td>0.379237</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>1062.0</td>
+      <td>0.067880</td>
+      <td>0.627619</td>
+      <td>DP12</td>
+      <td>0.400259</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1548.0</td>
+      <td>0.067804</td>
+      <td>0.689633</td>
+      <td>DP134</td>
+      <td>0.575403</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>309.0</td>
+      <td>0.104400</td>
+      <td>0.631168</td>
+      <td>DP137</td>
+      <td>0.556395</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>580.0</td>
+      <td>0.074314</td>
+      <td>0.741181</td>
+      <td>DP138</td>
+      <td>0.489851</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>591.0</td>
+      <td>0.127999</td>
+      <td>0.636479</td>
+      <td>DP139</td>
+      <td>0.566562</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>825.0</td>
+      <td>0.094916</td>
+      <td>0.602058</td>
+      <td>DP140</td>
+      <td>0.549084</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>445.0</td>
+      <td>0.136552</td>
+      <td>0.663319</td>
+      <td>DP141</td>
+      <td>0.628942</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>371</th>
+      <td>832.0</td>
+      <td>0.058693</td>
+      <td>0.688897</td>
+      <td>DP585</td>
+      <td>0.435934</td>
+    </tr>
+    <tr>
+      <th>372</th>
+      <td>1345.0</td>
+      <td>0.096475</td>
+      <td>0.533314</td>
+      <td>DP586</td>
+      <td>0.450740</td>
+    </tr>
+    <tr>
+      <th>373</th>
+      <td>792.0</td>
+      <td>0.150765</td>
+      <td>0.608246</td>
+      <td>DP587</td>
+      <td>0.657560</td>
+    </tr>
+    <tr>
+      <th>374</th>
+      <td>1234.0</td>
+      <td>0.064234</td>
+      <td>0.767592</td>
+      <td>DP588</td>
+      <td>0.568435</td>
+    </tr>
+    <tr>
+      <th>375</th>
+      <td>1075.0</td>
+      <td>0.091424</td>
+      <td>0.617897</td>
+      <td>DP589</td>
+      <td>0.525542</td>
+    </tr>
+    <tr>
+      <th>376</th>
+      <td>674.0</td>
+      <td>0.225599</td>
+      <td>0.394417</td>
+      <td>DP590</td>
+      <td>0.641284</td>
+    </tr>
+    <tr>
+      <th>377</th>
+      <td>674.0</td>
+      <td>0.102517</td>
+      <td>0.664473</td>
+      <td>DP598</td>
+      <td>0.581788</td>
+    </tr>
+    <tr>
+      <th>378</th>
+      <td>1122.0</td>
+      <td>0.183551</td>
+      <td>0.357897</td>
+      <td>DP599</td>
+      <td>0.541934</td>
+    </tr>
+    <tr>
+      <th>379</th>
+      <td>197.0</td>
+      <td>0.186160</td>
+      <td>0.572644</td>
+      <td>DP59</td>
+      <td>0.655484</td>
+    </tr>
+    <tr>
+      <th>380</th>
+      <td>406.0</td>
+      <td>0.086018</td>
+      <td>0.780184</td>
+      <td>DP5</td>
+      <td>0.530422</td>
+    </tr>
+    <tr>
+      <th>381</th>
+      <td>447.0</td>
+      <td>0.176724</td>
+      <td>0.477332</td>
+      <td>DP600</td>
+      <td>0.751065</td>
+    </tr>
+    <tr>
+      <th>382</th>
+      <td>338.0</td>
+      <td>0.047460</td>
+      <td>0.837713</td>
+      <td>DP601</td>
+      <td>0.344724</td>
+    </tr>
+    <tr>
+      <th>383</th>
+      <td>960.0</td>
+      <td>0.136976</td>
+      <td>0.567438</td>
+      <td>DP602</td>
+      <td>0.639417</td>
+    </tr>
+    <tr>
+      <th>384</th>
+      <td>138.0</td>
+      <td>0.061568</td>
+      <td>0.792532</td>
+      <td>DP603</td>
+      <td>0.269598</td>
+    </tr>
+    <tr>
+      <th>385</th>
+      <td>1217.0</td>
+      <td>0.106001</td>
+      <td>0.539628</td>
+      <td>DP604</td>
+      <td>0.493455</td>
+    </tr>
+    <tr>
+      <th>386</th>
+      <td>1179.0</td>
+      <td>0.070993</td>
+      <td>0.676561</td>
+      <td>DP605</td>
+      <td>0.489218</td>
+    </tr>
+    <tr>
+      <th>387</th>
+      <td>239.0</td>
+      <td>0.166028</td>
+      <td>0.751223</td>
+      <td>DP607</td>
+      <td>0.844919</td>
+    </tr>
+    <tr>
+      <th>388</th>
+      <td>928.0</td>
+      <td>0.119871</td>
+      <td>0.494260</td>
+      <td>DP609</td>
+      <td>0.577204</td>
+    </tr>
+    <tr>
+      <th>389</th>
+      <td>184.0</td>
+      <td>0.136612</td>
+      <td>0.587549</td>
+      <td>DP60</td>
+      <td>0.471188</td>
+    </tr>
+    <tr>
+      <th>390</th>
+      <td>302.0</td>
+      <td>0.205606</td>
+      <td>0.513991</td>
+      <td>DP611</td>
+      <td>0.722116</td>
+    </tr>
+    <tr>
+      <th>391</th>
+      <td>1005.0</td>
+      <td>0.065545</td>
+      <td>0.616327</td>
+      <td>DP613</td>
+      <td>0.421652</td>
+    </tr>
+    <tr>
+      <th>392</th>
+      <td>1164.0</td>
+      <td>0.212942</td>
+      <td>0.461387</td>
+      <td>DP614</td>
+      <td>0.644278</td>
+    </tr>
+    <tr>
+      <th>393</th>
+      <td>142.0</td>
+      <td>0.080711</td>
+      <td>0.799952</td>
+      <td>DP615</td>
+      <td>0.424078</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>245.0</td>
+      <td>0.064035</td>
+      <td>0.849082</td>
+      <td>DP616</td>
+      <td>0.458181</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>2554.0</td>
+      <td>0.050205</td>
+      <td>0.651515</td>
+      <td>DP617</td>
+      <td>0.432913</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>317.0</td>
+      <td>0.061774</td>
+      <td>0.832015</td>
+      <td>DP619</td>
+      <td>0.416103</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>969.0</td>
+      <td>0.063026</td>
+      <td>0.596175</td>
+      <td>DP61</td>
+      <td>0.355294</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>697.0</td>
+      <td>0.114345</td>
+      <td>0.567430</td>
+      <td>DP621</td>
+      <td>0.524078</td>
+    </tr>
+    <tr>
+      <th>399</th>
+      <td>965.0</td>
+      <td>0.073754</td>
+      <td>0.665074</td>
+      <td>DP622</td>
+      <td>0.487349</td>
+    </tr>
+    <tr>
+      <th>400</th>
+      <td>848.0</td>
+      <td>0.164479</td>
+      <td>0.482745</td>
+      <td>DP623</td>
+      <td>0.645804</td>
+    </tr>
+  </tbody>
+</table>
+<p>401 rows × 5 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [116]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>len(fb_nets)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[116]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>693
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [117]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fo_df.to_csv(&#39;data/FO_nets.csv&#39;, index=False)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [103]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_df.to_csv(&#39;data/FB_nets.csv&#39;, index=False)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [104]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>df2=fo_df.merge(fb_df, on=&#39;pID&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [105]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>df2[[n for n in df2.columns if re.match(&#39;density|ego|trans&#39;,n)]].corr()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[105]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>density_x</th>
+      <th>ego_betweenness_x</th>
+      <th>transitivity_x</th>
+      <th>density_y</th>
+      <th>ego_betweenness_y</th>
+      <th>transitivity_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>density_x</th>
+      <td>1.000000</td>
+      <td>-0.909439</td>
+      <td>0.883303</td>
+      <td>0.356656</td>
+      <td>-0.295802</td>
+      <td>0.371772</td>
+    </tr>
+    <tr>
+      <th>ego_betweenness_x</th>
+      <td>-0.909439</td>
+      <td>1.000000</td>
+      <td>-0.799580</td>
+      <td>-0.317357</td>
+      <td>0.368738</td>
+      <td>-0.328334</td>
+    </tr>
+    <tr>
+      <th>transitivity_x</th>
+      <td>0.883303</td>
+      <td>-0.799580</td>
+      <td>1.000000</td>
+      <td>0.375096</td>
+      <td>-0.313483</td>
+      <td>0.466925</td>
+    </tr>
+    <tr>
+      <th>density_y</th>
+      <td>0.356656</td>
+      <td>-0.317357</td>
+      <td>0.375096</td>
+      <td>1.000000</td>
+      <td>-0.717113</td>
+      <td>0.667323</td>
+    </tr>
+    <tr>
+      <th>ego_betweenness_y</th>
+      <td>-0.295802</td>
+      <td>0.368738</td>
+      <td>-0.313483</td>
+      <td>-0.717113</td>
+      <td>1.000000</td>
+      <td>-0.428499</td>
+    </tr>
+    <tr>
+      <th>transitivity_y</th>
+      <td>0.371772</td>
+      <td>-0.328334</td>
+      <td>0.466925</td>
+      <td>0.667323</td>
+      <td>-0.428499</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [234]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>df2
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[234]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>degree_x</th>
+      <th>density_x</th>
+      <th>ego_betweenness_x</th>
+      <th>pID</th>
+      <th>transitivity_x</th>
+      <th>degree_y</th>
+      <th>density_y</th>
+      <th>ego_betweenness_y</th>
+      <th>transitivity_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>41</td>
+      <td>0.171951</td>
+      <td>0.549836</td>
+      <td>DP1</td>
+      <td>0.463023</td>
+      <td>689</td>
+      <td>0.078311</td>
+      <td>0.723784</td>
+      <td>0.555321</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>41</td>
+      <td>0.274390</td>
+      <td>0.461024</td>
+      <td>DP10</td>
+      <td>0.638071</td>
+      <td>510</td>
+      <td>0.100058</td>
+      <td>0.607631</td>
+      <td>0.490692</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>41</td>
+      <td>0.045122</td>
+      <td>0.925316</td>
+      <td>DP100</td>
+      <td>0.200743</td>
+      <td>468</td>
+      <td>0.080885</td>
+      <td>0.726267</td>
+      <td>0.536453</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>40</td>
+      <td>0.041026</td>
+      <td>0.936752</td>
+      <td>DP103</td>
+      <td>0.137255</td>
+      <td>253</td>
+      <td>0.044513</td>
+      <td>0.860580</td>
+      <td>0.264781</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>40</td>
+      <td>0.067949</td>
+      <td>0.877094</td>
+      <td>DP107</td>
+      <td>0.259358</td>
+      <td>610</td>
+      <td>0.125139</td>
+      <td>0.589101</td>
+      <td>0.540065</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>40</td>
+      <td>0.173077</td>
+      <td>0.675849</td>
+      <td>DP11</td>
+      <td>0.584400</td>
+      <td>1103</td>
+      <td>0.078606</td>
+      <td>0.610205</td>
+      <td>0.589726</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>0.066667</td>
+      <td>0.933333</td>
+      <td>DP110</td>
+      <td>0.176471</td>
+      <td>33</td>
+      <td>0.068182</td>
+      <td>0.844381</td>
+      <td>0.189516</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>41</td>
+      <td>0.182927</td>
+      <td>0.747966</td>
+      <td>DP111</td>
+      <td>0.643973</td>
+      <td>500</td>
+      <td>0.236385</td>
+      <td>0.397428</td>
+      <td>0.595433</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>40</td>
+      <td>0.082051</td>
+      <td>0.869017</td>
+      <td>DP113</td>
+      <td>0.311224</td>
+      <td>338</td>
+      <td>0.077906</td>
+      <td>0.782939</td>
+      <td>0.499848</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>49</td>
+      <td>0.234694</td>
+      <td>0.699264</td>
+      <td>DP115</td>
+      <td>0.740189</td>
+      <td>448</td>
+      <td>0.126508</td>
+      <td>0.538899</td>
+      <td>0.485601</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>51</td>
+      <td>0.080000</td>
+      <td>0.856937</td>
+      <td>DP117</td>
+      <td>0.319767</td>
+      <td>1137</td>
+      <td>0.121124</td>
+      <td>0.594476</td>
+      <td>0.620841</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>41</td>
+      <td>0.064634</td>
+      <td>0.885955</td>
+      <td>DP118</td>
+      <td>0.199454</td>
+      <td>458</td>
+      <td>0.067815</td>
+      <td>0.742762</td>
+      <td>0.401119</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>79</td>
+      <td>0.018825</td>
+      <td>0.962458</td>
+      <td>DP119</td>
+      <td>0.077080</td>
+      <td>147</td>
+      <td>0.072966</td>
+      <td>0.671193</td>
+      <td>0.323185</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>40</td>
+      <td>0.108974</td>
+      <td>0.826668</td>
+      <td>DP121</td>
+      <td>0.396529</td>
+      <td>155</td>
+      <td>0.108002</td>
+      <td>0.751343</td>
+      <td>0.465716</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>41</td>
+      <td>0.021951</td>
+      <td>0.964634</td>
+      <td>DP122</td>
+      <td>0.064699</td>
+      <td>421</td>
+      <td>0.044656</td>
+      <td>0.861161</td>
+      <td>0.427944</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>40</td>
+      <td>0.265385</td>
+      <td>0.628484</td>
+      <td>DP128</td>
+      <td>0.734801</td>
+      <td>685</td>
+      <td>0.112276</td>
+      <td>0.569681</td>
+      <td>0.567216</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>40</td>
+      <td>0.047436</td>
+      <td>0.928184</td>
+      <td>DP134</td>
+      <td>0.189409</td>
+      <td>1548</td>
+      <td>0.067804</td>
+      <td>0.689633</td>
+      <td>0.575403</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>40</td>
+      <td>0.121795</td>
+      <td>0.782434</td>
+      <td>DP137</td>
+      <td>0.405612</td>
+      <td>309</td>
+      <td>0.104400</td>
+      <td>0.631168</td>
+      <td>0.556395</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>51</td>
+      <td>0.040000</td>
+      <td>0.933595</td>
+      <td>DP138</td>
+      <td>0.155239</td>
+      <td>580</td>
+      <td>0.074314</td>
+      <td>0.741181</td>
+      <td>0.489851</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>44</td>
+      <td>0.169133</td>
+      <td>0.634141</td>
+      <td>DP139</td>
+      <td>0.458023</td>
+      <td>591</td>
+      <td>0.127999</td>
+      <td>0.636479</td>
+      <td>0.566562</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>51</td>
+      <td>0.075294</td>
+      <td>0.897573</td>
+      <td>DP14</td>
+      <td>0.443404</td>
+      <td>572</td>
+      <td>0.103652</td>
+      <td>0.733578</td>
+      <td>0.698202</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>40</td>
+      <td>0.169231</td>
+      <td>0.631651</td>
+      <td>DP140</td>
+      <td>0.458672</td>
+      <td>825</td>
+      <td>0.094916</td>
+      <td>0.602058</td>
+      <td>0.549084</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>41</td>
+      <td>0.074390</td>
+      <td>0.856057</td>
+      <td>DP143</td>
+      <td>0.255422</td>
+      <td>716</td>
+      <td>0.074634</td>
+      <td>0.718485</td>
+      <td>0.489852</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>43</td>
+      <td>0.027685</td>
+      <td>0.951089</td>
+      <td>DP144</td>
+      <td>0.083582</td>
+      <td>1387</td>
+      <td>0.044718</td>
+      <td>0.732874</td>
+      <td>0.367979</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>20</td>
+      <td>0.005263</td>
+      <td>0.994737</td>
+      <td>DP146</td>
+      <td>0.015625</td>
+      <td>16</td>
+      <td>0.050000</td>
+      <td>0.925000</td>
+      <td>0.130435</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>40</td>
+      <td>0.039744</td>
+      <td>0.946474</td>
+      <td>DP147</td>
+      <td>0.151648</td>
+      <td>844</td>
+      <td>0.086199</td>
+      <td>0.783147</td>
+      <td>0.583625</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>41</td>
+      <td>0.078049</td>
+      <td>0.869106</td>
+      <td>DP151</td>
+      <td>0.267902</td>
+      <td>371</td>
+      <td>0.080804</td>
+      <td>0.681423</td>
+      <td>0.408017</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>40</td>
+      <td>0.005128</td>
+      <td>0.993590</td>
+      <td>DP152</td>
+      <td>0.015190</td>
+      <td>75</td>
+      <td>0.018378</td>
+      <td>0.944054</td>
+      <td>0.051340</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>63</td>
+      <td>0.019969</td>
+      <td>0.972436</td>
+      <td>DP153</td>
+      <td>0.075391</td>
+      <td>440</td>
+      <td>0.080275</td>
+      <td>0.750449</td>
+      <td>0.493990</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>40</td>
+      <td>0.134615</td>
+      <td>0.741999</td>
+      <td>DP154</td>
+      <td>0.422892</td>
+      <td>439</td>
+      <td>0.254876</td>
+      <td>0.386631</td>
+      <td>0.700547</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>9</td>
+      <td>0.055556</td>
+      <td>0.930556</td>
+      <td>DP197</td>
+      <td>0.146341</td>
+      <td>9</td>
+      <td>0.083333</td>
+      <td>0.902778</td>
+      <td>0.209302</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>5</td>
+      <td>0.100000</td>
+      <td>0.900000</td>
+      <td>DP208</td>
+      <td>0.250000</td>
+      <td>5</td>
+      <td>0.100000</td>
+      <td>0.900000</td>
+      <td>0.250000</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>47</td>
+      <td>0.152636</td>
+      <td>0.703419</td>
+      <td>DP209</td>
+      <td>0.489912</td>
+      <td>911</td>
+      <td>0.127176</td>
+      <td>0.562496</td>
+      <td>0.606746</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>40</td>
+      <td>0.251282</td>
+      <td>0.464807</td>
+      <td>DP21</td>
+      <td>0.568926</td>
+      <td>570</td>
+      <td>0.192421</td>
+      <td>0.183643</td>
+      <td>0.448765</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>40</td>
+      <td>0.160256</td>
+      <td>0.739486</td>
+      <td>DP210</td>
+      <td>0.556487</td>
+      <td>521</td>
+      <td>0.257906</td>
+      <td>0.419533</td>
+      <td>0.665541</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>49</td>
+      <td>0.046769</td>
+      <td>0.924036</td>
+      <td>DP212</td>
+      <td>0.197523</td>
+      <td>1</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>40</td>
+      <td>0.106410</td>
+      <td>0.713974</td>
+      <td>DP218</td>
+      <td>0.322772</td>
+      <td>289</td>
+      <td>0.046593</td>
+      <td>0.777954</td>
+      <td>0.246544</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>47</td>
+      <td>0.049954</td>
+      <td>0.914132</td>
+      <td>DP22</td>
+      <td>0.209877</td>
+      <td>1550</td>
+      <td>0.072551</td>
+      <td>0.591985</td>
+      <td>0.412730</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>40</td>
+      <td>0.103846</td>
+      <td>0.817463</td>
+      <td>DP221</td>
+      <td>0.362869</td>
+      <td>651</td>
+      <td>0.175673</td>
+      <td>0.464865</td>
+      <td>0.551484</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>40</td>
+      <td>0.093590</td>
+      <td>0.804375</td>
+      <td>DP223</td>
+      <td>0.303661</td>
+      <td>540</td>
+      <td>0.046767</td>
+      <td>0.783331</td>
+      <td>0.326857</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>40</td>
+      <td>0.089744</td>
+      <td>0.839167</td>
+      <td>DP224</td>
+      <td>0.316165</td>
+      <td>377</td>
+      <td>0.080577</td>
+      <td>0.700066</td>
+      <td>0.485497</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>42</td>
+      <td>0.092915</td>
+      <td>0.792495</td>
+      <td>DP225</td>
+      <td>0.328494</td>
+      <td>768</td>
+      <td>0.196857</td>
+      <td>0.260062</td>
+      <td>0.523774</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>47</td>
+      <td>0.024052</td>
+      <td>0.967006</td>
+      <td>DP228</td>
+      <td>0.088608</td>
+      <td>699</td>
+      <td>0.041635</td>
+      <td>0.805063</td>
+      <td>0.342471</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>45</td>
+      <td>0.038384</td>
+      <td>0.926263</td>
+      <td>DP232</td>
+      <td>0.131424</td>
+      <td>528</td>
+      <td>0.062446</td>
+      <td>0.786750</td>
+      <td>0.418167</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>6</td>
+      <td>0.133333</td>
+      <td>0.866667</td>
+      <td>DP236</td>
+      <td>0.315789</td>
+      <td>271</td>
+      <td>0.512587</td>
+      <td>0.079880</td>
+      <td>0.704953</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>40</td>
+      <td>0.061538</td>
+      <td>0.917650</td>
+      <td>DP239</td>
+      <td>0.243950</td>
+      <td>795</td>
+      <td>0.063517</td>
+      <td>0.696848</td>
+      <td>0.437925</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>40</td>
+      <td>0.217949</td>
+      <td>0.611420</td>
+      <td>DP24</td>
+      <td>0.638710</td>
+      <td>583</td>
+      <td>0.081608</td>
+      <td>0.650232</td>
+      <td>0.468197</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>42</td>
+      <td>0.055749</td>
+      <td>0.928494</td>
+      <td>DP242</td>
+      <td>0.251545</td>
+      <td>469</td>
+      <td>0.050544</td>
+      <td>0.821099</td>
+      <td>0.427107</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>45</td>
+      <td>0.038384</td>
+      <td>0.933923</td>
+      <td>DP243</td>
+      <td>0.137405</td>
+      <td>1049</td>
+      <td>0.060870</td>
+      <td>0.686094</td>
+      <td>0.444367</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>40</td>
+      <td>0.238462</td>
+      <td>0.614962</td>
+      <td>DP244</td>
+      <td>0.640065</td>
+      <td>804</td>
+      <td>0.085166</td>
+      <td>0.697037</td>
+      <td>0.486630</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>42</td>
+      <td>0.182346</td>
+      <td>0.632921</td>
+      <td>DP246</td>
+      <td>0.517032</td>
+      <td>444</td>
+      <td>0.090293</td>
+      <td>0.674907</td>
+      <td>0.481239</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>23</td>
+      <td>0.134387</td>
+      <td>0.825428</td>
+      <td>DP247</td>
+      <td>0.492901</td>
+      <td>239</td>
+      <td>0.205619</td>
+      <td>0.468470</td>
+      <td>0.567374</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>40</td>
+      <td>0.432051</td>
+      <td>0.530745</td>
+      <td>DP248</td>
+      <td>0.914499</td>
+      <td>892</td>
+      <td>0.218571</td>
+      <td>0.401895</td>
+      <td>0.654377</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>41</td>
+      <td>0.134146</td>
+      <td>0.752305</td>
+      <td>DP250</td>
+      <td>0.491081</td>
+      <td>838</td>
+      <td>0.166899</td>
+      <td>0.414893</td>
+      <td>0.549540</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>41</td>
+      <td>0.082927</td>
+      <td>0.843092</td>
+      <td>DP251</td>
+      <td>0.311095</td>
+      <td>663</td>
+      <td>0.144391</td>
+      <td>0.467104</td>
+      <td>0.513683</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>47</td>
+      <td>0.084181</td>
+      <td>0.854842</td>
+      <td>DP252</td>
+      <td>0.338005</td>
+      <td>422</td>
+      <td>0.095732</td>
+      <td>0.670842</td>
+      <td>0.461250</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>40</td>
+      <td>0.028205</td>
+      <td>0.960043</td>
+      <td>DP253</td>
+      <td>0.100115</td>
+      <td>868</td>
+      <td>0.031562</td>
+      <td>0.889769</td>
+      <td>0.346889</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>44</td>
+      <td>0.157505</td>
+      <td>0.722430</td>
+      <td>DP255</td>
+      <td>0.551597</td>
+      <td>1040</td>
+      <td>0.090490</td>
+      <td>0.583148</td>
+      <td>0.506767</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>40</td>
+      <td>0.078205</td>
+      <td>0.848120</td>
+      <td>DP256</td>
+      <td>0.220430</td>
+      <td>809</td>
+      <td>0.055606</td>
+      <td>0.717980</td>
+      <td>0.428480</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>40</td>
+      <td>0.038462</td>
+      <td>0.943376</td>
+      <td>DP257</td>
+      <td>0.133482</td>
+      <td>652</td>
+      <td>0.049099</td>
+      <td>0.767897</td>
+      <td>0.343456</td>
+    </tr>
+  </tbody>
+</table>
+<p>84 rows × 9 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [129]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_df
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[129]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>degree</th>
+      <th>density</th>
+      <th>ego_betweenness</th>
+      <th>pID</th>
+      <th>transitivity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>468</td>
+      <td>0.080885</td>
+      <td>0.726267</td>
+      <td>DP100</td>
+      <td>0.536453</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2079</td>
+      <td>0.064169</td>
+      <td>0.531821</td>
+      <td>DP101</td>
+      <td>0.416848</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>253</td>
+      <td>0.044513</td>
+      <td>0.860580</td>
+      <td>DP103</td>
+      <td>0.264781</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>DP106</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>610</td>
+      <td>0.125139</td>
+      <td>0.589101</td>
+      <td>DP107</td>
+      <td>0.540065</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>510</td>
+      <td>0.100058</td>
+      <td>0.607631</td>
+      <td>DP10</td>
+      <td>0.490692</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>33</td>
+      <td>0.068182</td>
+      <td>0.844381</td>
+      <td>DP110</td>
+      <td>0.189516</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>500</td>
+      <td>0.236385</td>
+      <td>0.397428</td>
+      <td>DP111</td>
+      <td>0.595433</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>338</td>
+      <td>0.077906</td>
+      <td>0.782939</td>
+      <td>DP113</td>
+      <td>0.499848</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>448</td>
+      <td>0.126508</td>
+      <td>0.538899</td>
+      <td>DP115</td>
+      <td>0.485601</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>418</td>
+      <td>0.071759</td>
+      <td>0.672140</td>
+      <td>DP116</td>
+      <td>0.375404</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1137</td>
+      <td>0.121124</td>
+      <td>0.594476</td>
+      <td>DP117</td>
+      <td>0.620841</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>458</td>
+      <td>0.067815</td>
+      <td>0.742762</td>
+      <td>DP118</td>
+      <td>0.401119</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>147</td>
+      <td>0.072966</td>
+      <td>0.671193</td>
+      <td>DP119</td>
+      <td>0.323185</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1103</td>
+      <td>0.078606</td>
+      <td>0.610205</td>
+      <td>DP11</td>
+      <td>0.589726</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>155</td>
+      <td>0.108002</td>
+      <td>0.751343</td>
+      <td>DP120</td>
+      <td>0.465716</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>155</td>
+      <td>0.108002</td>
+      <td>0.751343</td>
+      <td>DP121</td>
+      <td>0.465716</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>421</td>
+      <td>0.044656</td>
+      <td>0.861161</td>
+      <td>DP122</td>
+      <td>0.427944</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>16</td>
+      <td>0.108333</td>
+      <td>0.833333</td>
+      <td>DP123</td>
+      <td>0.243750</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>16</td>
+      <td>0.108333</td>
+      <td>0.833333</td>
+      <td>DP124</td>
+      <td>0.243750</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>54</td>
+      <td>0.592593</td>
+      <td>0.070373</td>
+      <td>DP127</td>
+      <td>0.710682</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>685</td>
+      <td>0.112276</td>
+      <td>0.569681</td>
+      <td>DP128</td>
+      <td>0.567216</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>739</td>
+      <td>0.075756</td>
+      <td>0.567758</td>
+      <td>DP129</td>
+      <td>0.379237</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>1062</td>
+      <td>0.067880</td>
+      <td>0.627619</td>
+      <td>DP12</td>
+      <td>0.400259</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1548</td>
+      <td>0.067804</td>
+      <td>0.689633</td>
+      <td>DP134</td>
+      <td>0.575403</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>309</td>
+      <td>0.104400</td>
+      <td>0.631168</td>
+      <td>DP137</td>
+      <td>0.556395</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>580</td>
+      <td>0.074314</td>
+      <td>0.741181</td>
+      <td>DP138</td>
+      <td>0.489851</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>591</td>
+      <td>0.127999</td>
+      <td>0.636479</td>
+      <td>DP139</td>
+      <td>0.566562</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>825</td>
+      <td>0.094916</td>
+      <td>0.602058</td>
+      <td>DP140</td>
+      <td>0.549084</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>445</td>
+      <td>0.136552</td>
+      <td>0.663319</td>
+      <td>DP141</td>
+      <td>0.628942</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>2</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>DP150</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>371</td>
+      <td>0.080804</td>
+      <td>0.681423</td>
+      <td>DP151</td>
+      <td>0.408017</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>75</td>
+      <td>0.018378</td>
+      <td>0.944054</td>
+      <td>DP152</td>
+      <td>0.051340</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>440</td>
+      <td>0.080275</td>
+      <td>0.750449</td>
+      <td>DP153</td>
+      <td>0.493990</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>439</td>
+      <td>0.254876</td>
+      <td>0.386631</td>
+      <td>DP154</td>
+      <td>0.700547</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>321</td>
+      <td>0.072313</td>
+      <td>0.731047</td>
+      <td>DP156</td>
+      <td>0.394109</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>858</td>
+      <td>0.232869</td>
+      <td>0.269284</td>
+      <td>DP157</td>
+      <td>0.577206</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>533</td>
+      <td>0.139528</td>
+      <td>0.514957</td>
+      <td>DP158</td>
+      <td>0.564909</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>546</td>
+      <td>0.187532</td>
+      <td>0.390280</td>
+      <td>DP159</td>
+      <td>0.559163</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>788</td>
+      <td>0.122556</td>
+      <td>0.557601</td>
+      <td>DP161</td>
+      <td>0.530121</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>1272</td>
+      <td>0.109375</td>
+      <td>0.589297</td>
+      <td>DP162</td>
+      <td>0.588227</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>277</td>
+      <td>0.087375</td>
+      <td>0.702904</td>
+      <td>DP163</td>
+      <td>0.403099</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>704</td>
+      <td>0.152019</td>
+      <td>0.258282</td>
+      <td>DP164</td>
+      <td>0.447949</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>535</td>
+      <td>0.048304</td>
+      <td>0.821901</td>
+      <td>DP165</td>
+      <td>0.505556</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>878</td>
+      <td>0.055077</td>
+      <td>0.709071</td>
+      <td>DP167</td>
+      <td>0.371990</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>927</td>
+      <td>0.116444</td>
+      <td>0.546938</td>
+      <td>DP16</td>
+      <td>0.504791</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>1</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>DP170</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>10</td>
+      <td>0.177778</td>
+      <td>0.733333</td>
+      <td>DP171</td>
+      <td>0.389610</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>567</td>
+      <td>0.067630</td>
+      <td>0.688736</td>
+      <td>DP172</td>
+      <td>0.372874</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>948</td>
+      <td>0.085832</td>
+      <td>0.645725</td>
+      <td>DP173</td>
+      <td>0.477600</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>1836</td>
+      <td>0.098076</td>
+      <td>0.549027</td>
+      <td>DP175</td>
+      <td>0.453036</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>826</td>
+      <td>0.072096</td>
+      <td>0.573646</td>
+      <td>DP176</td>
+      <td>0.456894</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>1892</td>
+      <td>0.086945</td>
+      <td>0.556482</td>
+      <td>DP17</td>
+      <td>0.548234</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>454</td>
+      <td>0.116541</td>
+      <td>0.592810</td>
+      <td>DP182</td>
+      <td>0.512138</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>50</td>
+      <td>0.089796</td>
+      <td>0.775925</td>
+      <td>DP183</td>
+      <td>0.274609</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>1067</td>
+      <td>0.051483</td>
+      <td>0.738141</td>
+      <td>DP184</td>
+      <td>0.396203</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>424</td>
+      <td>0.090715</td>
+      <td>0.699627</td>
+      <td>DP185</td>
+      <td>0.533376</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>1004</td>
+      <td>0.145244</td>
+      <td>0.479391</td>
+      <td>DP186</td>
+      <td>0.592474</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>531</td>
+      <td>0.123057</td>
+      <td>0.586941</td>
+      <td>DP187</td>
+      <td>0.515179</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>957</td>
+      <td>0.104034</td>
+      <td>0.500919</td>
+      <td>DP188</td>
+      <td>0.479325</td>
+    </tr>
+  </tbody>
+</table>
+<p>67 rows × 5 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [134]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>build_network(&#39;data/facebook_networks/DP190_network.graphml&#39;, plot=True, summary_stats=True)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Density 0.12226746006890073
+Transitivity 0.61376442178696
+Ego_Betweenness 0.5800565254004239
+Degree 310
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[134]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>{&#39;degree&#39;: 310,
+ &#39;density&#39;: 0.12226746006890073,
+ &#39;ego_betweenness&#39;: 0.5800565254004239,
+ &#39;transitivity&#39;: 0.61376442178696}
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/test_27_2.png" src="_images/test_27_2.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [150]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>nx.read_graphml(&#39;data/facebook_networks/DP189_network.graphml&#39;).nodes()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[150]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[]
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import multiprocessing
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [95]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>p = multiprocessing.Pool(32)
+tdata=p.map(build_network,[os.path.join(&#39;data&#39;,&#39;facebook_networks&#39;,f) for f in fb_nets[300:400]])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Processing DP508
+Processing DP498
+Processing DP502
+Processing DP500
+Processing DP501
+Processing DP497
+Processing DP49
+Processing DP505
+Processing DP506
+Processing DP499
+Processing DP50
+Processing DP503
+Processing DP504
+Processing DP513
+Processing DP509
+Processing DP515
+Processing DP507
+Processing DP524
+Processing DP510
+Processing DP525
+Processing DP529
+Processing DP516
+Processing DP528
+Processing DP523
+Processing DP526
+Processing DP531
+Processing DP511
+Processing DP518
+Processing DP52
+Processing DP514
+Processing DP51
+Processing DP532
+ProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessing DP543
+ DP564
+ DP615
+ DP536
+ DP55
+ DP56
+ DP541
+ DP576
+ DP565
+ DP582
+ DP533
+ DP544
+ DP571
+ DP547
+ DP589
+ DP540
+ DP578
+ DP546
+ DP570
+ DP619
+ DP60
+ DP557
+ DP574
+ DP535
+ DP586
+ DP539
+ DP623
+ DP552
+ DP567
+ProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessing DP579
+ProcessingProcessing DP581
+ DP580
+ DP616
+ DP553
+ DP590
+ DP622
+ DP573
+ DP59
+ DP587
+ DP585
+ DP542
+ DP614
+ DP588
+ DP61
+ DP57
+ DP611
+ DP621
+ DP549
+ProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessingProcessing DP601
+ DP602
+ DP617
+ DP555
+ DP613
+ DP550
+ DP575
+ DP5
+ DP599
+ProcessingProcessingProcessingProcessingProcessing DP603
+ DP600
+ DP577
+ DP556
+ DP563
+ProcessingProcessingProcessingProcessing DP604
+ DP607
+ DP598
+ DP560
+ProcessingProcessing DP605
+ DP609
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>p.terminate()
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [159]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>len(fb_nets)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[159]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>693
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [66]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_df = pd.read_csv(&#39;data/FB_nets.csv&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [79]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_data=fb_df.to_dict(orient=&#39;record&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [99]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_data.extend(tdata)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [97]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>len(tdata)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[97]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>100
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [100]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>len(fb_data)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[100]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>401
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [98]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>tdata[0]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[98]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>{&#39;degree&#39;: 1425,
+ &#39;density&#39;: 0.06640646560220777,
+ &#39;ego_betweenness&#39;: 0.5818838592383345,
+ &#39;pID&#39;: &#39;DP497&#39;,
+ &#39;transitivity&#39;: 0.36473705490899017}
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [243]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>tdata
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[243]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[{&#39;degree&#39;: 1184,
+  &#39;density&#39;: 0.09934374357451281,
+  &#39;ego_betweenness&#39;: 0.4965824028332179,
+  &#39;pID&#39;: &#39;DP258&#39;,
+  &#39;transitivity&#39;: 0.486482091950532},
+ {&#39;degree&#39;: 291,
+  &#39;density&#39;: 0.031283327408460716,
+  &#39;ego_betweenness&#39;: 0.9342274523525714,
+  &#39;pID&#39;: &#39;DP259&#39;,
+  &#39;transitivity&#39;: 0.25439677907648134},
+ {&#39;degree&#39;: 280,
+  &#39;density&#39;: 0.10957501280081926,
+  &#39;ego_betweenness&#39;: 0.7714159031935947,
+  &#39;pID&#39;: &#39;DP25&#39;,
+  &#39;transitivity&#39;: 0.6444383600539483},
+ {&#39;degree&#39;: 434,
+  &#39;density&#39;: 0.11937931695064974,
+  &#39;ego_betweenness&#39;: 0.6131839782517772,
+  &#39;pID&#39;: &#39;DP261&#39;,
+  &#39;transitivity&#39;: 0.48213685892366176},
+ {&#39;degree&#39;: 523,
+  &#39;density&#39;: 0.08597613239269467,
+  &#39;ego_betweenness&#39;: 0.6525064444716356,
+  &#39;pID&#39;: &#39;DP262&#39;,
+  &#39;transitivity&#39;: 0.505883270694569},
+ {&#39;degree&#39;: 880,
+  &#39;density&#39;: 0.0685308718585169,
+  &#39;ego_betweenness&#39;: 0.6168679533607389,
+  &#39;pID&#39;: &#39;DP267&#39;,
+  &#39;transitivity&#39;: 0.38611274484089747},
+ {&#39;degree&#39;: 1040,
+  &#39;density&#39;: 0.05150292440956541,
+  &#39;ego_betweenness&#39;: 0.6757374303133272,
+  &#39;pID&#39;: &#39;DP268&#39;,
+  &#39;transitivity&#39;: 0.34738083052883467},
+ {&#39;degree&#39;: 354,
+  &#39;density&#39;: 0.14671660184696148,
+  &#39;ego_betweenness&#39;: 0.6726907288245035,
+  &#39;pID&#39;: &#39;DP269&#39;,
+  &#39;transitivity&#39;: 0.6310094056045767},
+ {&#39;degree&#39;: 1291,
+  &#39;density&#39;: 0.0440197191048343,
+  &#39;ego_betweenness&#39;: 0.694465956892845,
+  &#39;pID&#39;: &#39;DP26&#39;,
+  &#39;transitivity&#39;: 0.3921206576307706},
+ {&#39;degree&#39;: 590,
+  &#39;density&#39;: 0.09634255129348795,
+  &#39;ego_betweenness&#39;: 0.718380801317088,
+  &#39;pID&#39;: &#39;DP271&#39;,
+  &#39;transitivity&#39;: 0.660096676546746},
+ {&#39;degree&#39;: 1622,
+  &#39;density&#39;: 0.06250575256478814,
+  &#39;ego_betweenness&#39;: 0.5916408426230989,
+  &#39;pID&#39;: &#39;DP272&#39;,
+  &#39;transitivity&#39;: 0.48365923861954435},
+ {&#39;degree&#39;: 448,
+  &#39;density&#39;: 0.060732262703739215,
+  &#39;ego_betweenness&#39;: 0.7731290449051745,
+  &#39;pID&#39;: &#39;DP275&#39;,
+  &#39;transitivity&#39;: 0.4504059108432489},
+ {&#39;degree&#39;: 1111,
+  &#39;density&#39;: 0.09845525093049845,
+  &#39;ego_betweenness&#39;: 0.5816853554683916,
+  &#39;pID&#39;: &#39;DP27&#39;,
+  &#39;transitivity&#39;: 0.6257427328525229},
+ {&#39;degree&#39;: 913,
+  &#39;density&#39;: 0.11960281316654177,
+  &#39;ego_betweenness&#39;: 0.5472148423231066,
+  &#39;pID&#39;: &#39;DP281&#39;,
+  &#39;transitivity&#39;: 0.5322684629335296},
+ {&#39;degree&#39;: 1617,
+  &#39;density&#39;: 0.07301827121487658,
+  &#39;ego_betweenness&#39;: 0.6683613470195113,
+  &#39;pID&#39;: &#39;DP28&#39;,
+  &#39;transitivity&#39;: 0.4671211743418451},
+ {&#39;degree&#39;: 328,
+  &#39;density&#39;: 0.06647646751696874,
+  &#39;ego_betweenness&#39;: 0.7554357051649294,
+  &#39;pID&#39;: &#39;DP294&#39;,
+  &#39;transitivity&#39;: 0.45955385115817227},
+ {&#39;degree&#39;: 1102,
+  &#39;density&#39;: 0.05527560327107348,
+  &#39;ego_betweenness&#39;: 0.6438420289319283,
+  &#39;pID&#39;: &#39;DP2&#39;,
+  &#39;transitivity&#39;: 0.3764939664639697},
+ {&#39;degree&#39;: 451,
+  &#39;density&#39;: 0.1042719881744272,
+  &#39;ego_betweenness&#39;: 0.6791752966249771,
+  &#39;pID&#39;: &#39;DP312&#39;,
+  &#39;transitivity&#39;: 0.5553685381262622},
+ {&#39;degree&#39;: 232,
+  &#39;density&#39;: 0.13893864755933721,
+  &#39;ego_betweenness&#39;: 0.6575118858959071,
+  &#39;pID&#39;: &#39;DP317&#39;,
+  &#39;transitivity&#39;: 0.6378186908950828},
+ {&#39;degree&#39;: 162,
+  &#39;density&#39;: 0.061344988881220766,
+  &#39;ego_betweenness&#39;: 0.8743347791366036,
+  &#39;pID&#39;: &#39;DP319&#39;,
+  &#39;transitivity&#39;: 0.3644387386664527},
+ {&#39;degree&#39;: 1385,
+  &#39;density&#39;: 0.056520106007804514,
+  &#39;ego_betweenness&#39;: 0.7098761106091048,
+  &#39;pID&#39;: &#39;DP31&#39;,
+  &#39;transitivity&#39;: 0.45700060147719257},
+ {&#39;degree&#39;: 1396,
+  &#39;density&#39;: 0.13267810744472172,
+  &#39;ego_betweenness&#39;: 0.574103714100483,
+  &#39;pID&#39;: &#39;DP320&#39;,
+  &#39;transitivity&#39;: 0.603399027801065},
+ {&#39;degree&#39;: 1069,
+  &#39;density&#39;: 0.058168052329349774,
+  &#39;ego_betweenness&#39;: 0.7240874246226175,
+  &#39;pID&#39;: &#39;DP321&#39;,
+  &#39;transitivity&#39;: 0.4468227987430351},
+ {&#39;degree&#39;: 1070,
+  &#39;density&#39;: 0.05823592666742435,
+  &#39;ego_betweenness&#39;: 0.7235414161003747,
+  &#39;pID&#39;: &#39;DP322&#39;,
+  &#39;transitivity&#39;: 0.44679076290472786},
+ {&#39;degree&#39;: 1118,
+  &#39;density&#39;: 0.06310347644069615,
+  &#39;ego_betweenness&#39;: 0.7167628898834478,
+  &#39;pID&#39;: &#39;DP323&#39;,
+  &#39;transitivity&#39;: 0.5350816651489251},
+ {&#39;degree&#39;: 534,
+  &#39;density&#39;: 0.08326130798040911,
+  &#39;ego_betweenness&#39;: 0.719530077266941,
+  &#39;pID&#39;: &#39;DP324&#39;,
+  &#39;transitivity&#39;: 0.5582365015469921},
+ {&#39;degree&#39;: 560,
+  &#39;density&#39;: 0.17823281369792998,
+  &#39;ego_betweenness&#39;: 0.43119535910111867,
+  &#39;pID&#39;: &#39;DP325&#39;,
+  &#39;transitivity&#39;: 0.5696561703055827},
+ {&#39;degree&#39;: 1840,
+  &#39;density&#39;: 0.0975742960493652,
+  &#39;ego_betweenness&#39;: 0.5502131919729262,
+  &#39;pID&#39;: &#39;DP326&#39;,
+  &#39;transitivity&#39;: 0.4525632367346477},
+ {&#39;degree&#39;: 1438,
+  &#39;density&#39;: 0.07127834510739903,
+  &#39;ego_betweenness&#39;: 0.674363567354795,
+  &#39;pID&#39;: &#39;DP327&#39;,
+  &#39;transitivity&#39;: 0.44183284342221607},
+ {&#39;pID&#39;: &#39;DP328&#39;},
+ {&#39;pID&#39;: &#39;DP329&#39;},
+ {&#39;degree&#39;: 383,
+  &#39;density&#39;: 0.03321804984074474,
+  &#39;ego_betweenness&#39;: 0.8558645086143913,
+  &#39;pID&#39;: &#39;DP32&#39;,
+  &#39;transitivity&#39;: 0.21453545904343047},
+ {&#39;degree&#39;: 490,
+  &#39;density&#39;: 0.02414757313968532,
+  &#39;ego_betweenness&#39;: 0.8668252876812442,
+  &#39;pID&#39;: &#39;DP330&#39;,
+  &#39;transitivity&#39;: 0.19306645103076264},
+ {&#39;degree&#39;: 850,
+  &#39;density&#39;: 0.16609159564886025,
+  &#39;ego_betweenness&#39;: 0.5484853905960282,
+  &#39;pID&#39;: &#39;DP331&#39;,
+  &#39;transitivity&#39;: 0.6225881734620677},
+ {&#39;degree&#39;: 1227,
+  &#39;density&#39;: 0.1620592141737497,
+  &#39;ego_betweenness&#39;: 0.3951878626395387,
+  &#39;pID&#39;: &#39;DP332&#39;,
+  &#39;transitivity&#39;: 0.5533760310985261},
+ {&#39;degree&#39;: 312,
+  &#39;density&#39;: 0.10421304311979553,
+  &#39;ego_betweenness&#39;: 0.6278355967491278,
+  &#39;pID&#39;: &#39;DP333&#39;,
+  &#39;transitivity&#39;: 0.5541386870643293},
+ {&#39;degree&#39;: 402,
+  &#39;density&#39;: 0.14244240145903897,
+  &#39;ego_betweenness&#39;: 0.51805602433983,
+  &#39;pID&#39;: &#39;DP336&#39;,
+  &#39;transitivity&#39;: 0.5684257980217305},
+ {&#39;degree&#39;: 1638,
+  &#39;density&#39;: 0.07128797354820568,
+  &#39;ego_betweenness&#39;: 0.6714313384688276,
+  &#39;pID&#39;: &#39;DP337&#39;,
+  &#39;transitivity&#39;: 0.46341559470476024},
+ {&#39;degree&#39;: 113,
+  &#39;density&#39;: 0.10224399494310998,
+  &#39;ego_betweenness&#39;: 0.7657829985856403,
+  &#39;pID&#39;: &#39;DP338&#39;,
+  &#39;transitivity&#39;: 0.5322291610100461},
+ {&#39;degree&#39;: 355,
+  &#39;density&#39;: 0.12451659107185485,
+  &#39;ego_betweenness&#39;: 0.6308652782212514,
+  &#39;pID&#39;: &#39;DP339&#39;,
+  &#39;transitivity&#39;: 0.516260968798057},
+ {&#39;degree&#39;: 280,
+  &#39;density&#39;: 0.04503328213005632,
+  &#39;ego_betweenness&#39;: 0.8690037909545193,
+  &#39;pID&#39;: &#39;DP33&#39;,
+  &#39;transitivity&#39;: 0.3444420980386981},
+ {&#39;degree&#39;: 1009,
+  &#39;density&#39;: 0.09504538518413642,
+  &#39;ego_betweenness&#39;: 0.6685270415840479,
+  &#39;pID&#39;: &#39;DP340&#39;,
+  &#39;transitivity&#39;: 0.5326035990012628},
+ {&#39;degree&#39;: 625,
+  &#39;density&#39;: 0.0676051282051282,
+  &#39;ego_betweenness&#39;: 0.6742641812721063,
+  &#39;pID&#39;: &#39;DP341&#39;,
+  &#39;transitivity&#39;: 0.3761771493812864},
+ {&#39;degree&#39;: 447,
+  &#39;density&#39;: 0.07035443063372157,
+  &#39;ego_betweenness&#39;: 0.7979852822716482,
+  &#39;pID&#39;: &#39;DP343&#39;,
+  &#39;transitivity&#39;: 0.5329385531201498},
+ {&#39;degree&#39;: 1045,
+  &#39;density&#39;: 0.08049276797008194,
+  &#39;ego_betweenness&#39;: 0.7225843337175027,
+  &#39;pID&#39;: &#39;DP344&#39;,
+  &#39;transitivity&#39;: 0.5538736763074997},
+ {&#39;degree&#39;: 661,
+  &#39;density&#39;: 0.055008481180947144,
+  &#39;ego_betweenness&#39;: 0.777361113583714,
+  &#39;pID&#39;: &#39;DP345&#39;,
+  &#39;transitivity&#39;: 0.4000471963432532},
+ {&#39;degree&#39;: 321,
+  &#39;density&#39;: 0.1012266355140187,
+  &#39;ego_betweenness&#39;: 0.6338673940044607,
+  &#39;pID&#39;: &#39;DP347&#39;,
+  &#39;transitivity&#39;: 0.41263626062021524},
+ {&#39;degree&#39;: 1035,
+  &#39;density&#39;: 0.04745325596389426,
+  &#39;ego_betweenness&#39;: 0.7808611459093028,
+  &#39;pID&#39;: &#39;DP349&#39;,
+  &#39;transitivity&#39;: 0.43343578011289213},
+ {&#39;degree&#39;: 328,
+  &#39;density&#39;: 0.07281643917356605,
+  &#39;ego_betweenness&#39;: 0.7523602362624392,
+  &#39;pID&#39;: &#39;DP34&#39;,
+  &#39;transitivity&#39;: 0.42043111772227876},
+ {&#39;degree&#39;: 894,
+  &#39;density&#39;: 0.21412878190048876,
+  &#39;ego_betweenness&#39;: 0.2840211492028463,
+  &#39;pID&#39;: &#39;DP350&#39;,
+  &#39;transitivity&#39;: 0.5486297701627514},
+ {&#39;degree&#39;: 816,
+  &#39;density&#39;: 0.10667328281005654,
+  &#39;ego_betweenness&#39;: 0.5762959951246864,
+  &#39;pID&#39;: &#39;DP352&#39;,
+  &#39;transitivity&#39;: 0.5891169784335059},
+ {&#39;degree&#39;: 1797,
+  &#39;density&#39;: 0.04711638923075207,
+  &#39;ego_betweenness&#39;: 0.6901866448252905,
+  &#39;pID&#39;: &#39;DP353&#39;,
+  &#39;transitivity&#39;: 0.4277885159751451},
+ {&#39;degree&#39;: 753,
+  &#39;density&#39;: 0.17015978638636942,
+  &#39;ego_betweenness&#39;: 0.41757566628001486,
+  &#39;pID&#39;: &#39;DP355&#39;,
+  &#39;transitivity&#39;: 0.5952100197271811},
+ {&#39;degree&#39;: 462,
+  &#39;density&#39;: 0.10845047938323427,
+  &#39;ego_betweenness&#39;: 0.5399089399058353,
+  &#39;pID&#39;: &#39;DP356&#39;,
+  &#39;transitivity&#39;: 0.3969156487023216},
+ {&#39;degree&#39;: 221,
+  &#39;density&#39;: 0.15195392842451666,
+  &#39;ego_betweenness&#39;: 0.4983879005866303,
+  &#39;pID&#39;: &#39;DP357&#39;,
+  &#39;transitivity&#39;: 0.48672437198032376},
+ {&#39;degree&#39;: 705,
+  &#39;density&#39;: 0.025072533849129594,
+  &#39;ego_betweenness&#39;: 0.8740787320758222,
+  &#39;pID&#39;: &#39;DP358&#39;,
+  &#39;transitivity&#39;: 0.22708299782810235},
+ {&#39;degree&#39;: 499,
+  &#39;density&#39;: 0.11031701958133133,
+  &#39;ego_betweenness&#39;: 0.7027427948143872,
+  &#39;pID&#39;: &#39;DP35&#39;,
+  &#39;transitivity&#39;: 0.5954642851262704},
+ {&#39;degree&#39;: 327,
+  &#39;density&#39;: 0.06909814074782837,
+  &#39;ego_betweenness&#39;: 0.7455896652133386,
+  &#39;pID&#39;: &#39;DP361&#39;,
+  &#39;transitivity&#39;: 0.35936449614869476},
+ {&#39;degree&#39;: 436,
+  &#39;density&#39;: 0.04788569018243172,
+  &#39;ego_betweenness&#39;: 0.8403668493362724,
+  &#39;pID&#39;: &#39;DP362&#39;,
+  &#39;transitivity&#39;: 0.40692509800650595},
+ {&#39;degree&#39;: 305,
+  &#39;density&#39;: 0.17096635030198448,
+  &#39;ego_betweenness&#39;: 0.4200656382226063,
+  &#39;pID&#39;: &#39;DP363&#39;,
+  &#39;transitivity&#39;: 0.6096734424559536},
+ {&#39;degree&#39;: 630,
+  &#39;density&#39;: 0.16255583314406843,
+  &#39;ego_betweenness&#39;: 0.498583129857026,
+  &#39;pID&#39;: &#39;DP364&#39;,
+  &#39;transitivity&#39;: 0.5663330193816001},
+ {&#39;degree&#39;: 1406,
+  &#39;density&#39;: 0.06413489721225252,
+  &#39;ego_betweenness&#39;: 0.631696513707834,
+  &#39;pID&#39;: &#39;DP365&#39;,
+  &#39;transitivity&#39;: 0.5094011832087239},
+ {&#39;degree&#39;: 863,
+  &#39;density&#39;: 0.18896204628004076,
+  &#39;ego_betweenness&#39;: 0.3407220949894664,
+  &#39;pID&#39;: &#39;DP366&#39;,
+  &#39;transitivity&#39;: 0.6241010959172045},
+ {&#39;degree&#39;: 566,
+  &#39;density&#39;: 0.08287938959942462,
+  &#39;ego_betweenness&#39;: 0.6433337223564871,
+  &#39;pID&#39;: &#39;DP368&#39;,
+  &#39;transitivity&#39;: 0.40283104713284124},
+ {&#39;degree&#39;: 2543,
+  &#39;density&#39;: 0.10028516595594329,
+  &#39;ego_betweenness&#39;: 0.2666227832813729,
+  &#39;pID&#39;: &#39;DP369&#39;,
+  &#39;transitivity&#39;: 0.40164738626078444},
+ {&#39;degree&#39;: 543,
+  &#39;density&#39;: 0.08627754785835151,
+  &#39;ego_betweenness&#39;: 0.5406514179490598,
+  &#39;pID&#39;: &#39;DP36&#39;,
+  &#39;transitivity&#39;: 0.3628573130334783},
+ {&#39;degree&#39;: 784,
+  &#39;density&#39;: 0.15395391873224384,
+  &#39;ego_betweenness&#39;: 0.603376099469748,
+  &#39;pID&#39;: &#39;DP370&#39;,
+  &#39;transitivity&#39;: 0.6618478855952894},
+ {&#39;degree&#39;: 539,
+  &#39;density&#39;: 0.1526508541909498,
+  &#39;ego_betweenness&#39;: 0.6254623262961703,
+  &#39;pID&#39;: &#39;DP371&#39;,
+  &#39;transitivity&#39;: 0.651221985629137},
+ {&#39;degree&#39;: 1220,
+  &#39;density&#39;: 0.10406272273699216,
+  &#39;ego_betweenness&#39;: 0.51273447623271,
+  &#39;pID&#39;: &#39;DP372&#39;,
+  &#39;transitivity&#39;: 0.49876899098594935},
+ {&#39;degree&#39;: 1405,
+  &#39;density&#39;: 0.05009986718171772,
+  &#39;ego_betweenness&#39;: 0.7157296117500912,
+  &#39;pID&#39;: &#39;DP373&#39;,
+  &#39;transitivity&#39;: 0.37152943575464575},
+ {&#39;degree&#39;: 228,
+  &#39;density&#39;: 0.16705309529329931,
+  &#39;ego_betweenness&#39;: 0.5779509648092557,
+  &#39;pID&#39;: &#39;DP374&#39;,
+  &#39;transitivity&#39;: 0.5791375217930136},
+ {&#39;degree&#39;: 701,
+  &#39;density&#39;: 0.07389036070919096,
+  &#39;ego_betweenness&#39;: 0.618877347954365,
+  &#39;pID&#39;: &#39;DP376&#39;,
+  &#39;transitivity&#39;: 0.4356714960592088},
+ {&#39;degree&#39;: 519,
+  &#39;density&#39;: 0.16048087724388302,
+  &#39;ego_betweenness&#39;: 0.4422635345080738,
+  &#39;pID&#39;: &#39;DP378&#39;,
+  &#39;transitivity&#39;: 0.6110541083922032},
+ {&#39;degree&#39;: 1014,
+  &#39;density&#39;: 0.0718120060515079,
+  &#39;ego_betweenness&#39;: 0.7033428923323598,
+  &#39;pID&#39;: &#39;DP379&#39;,
+  &#39;transitivity&#39;: 0.48126606556868234},
+ {&#39;degree&#39;: 357,
+  &#39;density&#39;: 0.044975293488181786,
+  &#39;ego_betweenness&#39;: 0.8840896075219004,
+  &#39;pID&#39;: &#39;DP37&#39;,
+  &#39;transitivity&#39;: 0.36198028715355235}]
+</pre></div>
+</div>
+</div>
+<div class="section" id="====-SCRATCHPAD-=========">
+<h2>==== SCRATCHPAD =========<a class="headerlink" href="#====-SCRATCHPAD-=========" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [188]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>len(fb_data)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[188]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>101
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [178]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_data[68] = {&#39;pID&#39;: &#39;DP189&#39;}
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [238]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>for pid, item in zip([re.search(&#39;(DP\d+)(.json|_network)&#39;, n).group(1) for n in fb_nets[125:200]],tdata):
+    item.update({&#39;pID&#39;:pid})
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [240]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>tdata
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[240]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[{&#39;degree&#39;: 1184,
+  &#39;density&#39;: 0.09934374357451281,
+  &#39;ego_betweenness&#39;: 0.4965824028332179,
+  &#39;pID&#39;: &#39;DP258&#39;,
+  &#39;transitivity&#39;: 0.486482091950532},
+ {&#39;degree&#39;: 291,
+  &#39;density&#39;: 0.031283327408460716,
+  &#39;ego_betweenness&#39;: 0.9342274523525714,
+  &#39;pID&#39;: &#39;DP259&#39;,
+  &#39;transitivity&#39;: 0.25439677907648134},
+ {&#39;degree&#39;: 280,
+  &#39;density&#39;: 0.10957501280081926,
+  &#39;ego_betweenness&#39;: 0.7714159031935947,
+  &#39;pID&#39;: &#39;DP25&#39;,
+  &#39;transitivity&#39;: 0.6444383600539483},
+ {&#39;degree&#39;: 434,
+  &#39;density&#39;: 0.11937931695064974,
+  &#39;ego_betweenness&#39;: 0.6131839782517772,
+  &#39;pID&#39;: &#39;DP261&#39;,
+  &#39;transitivity&#39;: 0.48213685892366176},
+ {&#39;degree&#39;: 523,
+  &#39;density&#39;: 0.08597613239269467,
+  &#39;ego_betweenness&#39;: 0.6525064444716356,
+  &#39;pID&#39;: &#39;DP262&#39;,
+  &#39;transitivity&#39;: 0.505883270694569},
+ {&#39;degree&#39;: 880,
+  &#39;density&#39;: 0.0685308718585169,
+  &#39;ego_betweenness&#39;: 0.6168679533607389,
+  &#39;pID&#39;: &#39;DP267&#39;,
+  &#39;transitivity&#39;: 0.38611274484089747},
+ {&#39;degree&#39;: 1040,
+  &#39;density&#39;: 0.05150292440956541,
+  &#39;ego_betweenness&#39;: 0.6757374303133272,
+  &#39;pID&#39;: &#39;DP268&#39;,
+  &#39;transitivity&#39;: 0.34738083052883467},
+ {&#39;degree&#39;: 354,
+  &#39;density&#39;: 0.14671660184696148,
+  &#39;ego_betweenness&#39;: 0.6726907288245035,
+  &#39;pID&#39;: &#39;DP269&#39;,
+  &#39;transitivity&#39;: 0.6310094056045767},
+ {&#39;degree&#39;: 1291,
+  &#39;density&#39;: 0.0440197191048343,
+  &#39;ego_betweenness&#39;: 0.694465956892845,
+  &#39;pID&#39;: &#39;DP26&#39;,
+  &#39;transitivity&#39;: 0.3921206576307706},
+ {&#39;degree&#39;: 590,
+  &#39;density&#39;: 0.09634255129348795,
+  &#39;ego_betweenness&#39;: 0.718380801317088,
+  &#39;pID&#39;: &#39;DP271&#39;,
+  &#39;transitivity&#39;: 0.660096676546746},
+ {&#39;degree&#39;: 1622,
+  &#39;density&#39;: 0.06250575256478814,
+  &#39;ego_betweenness&#39;: 0.5916408426230989,
+  &#39;pID&#39;: &#39;DP272&#39;,
+  &#39;transitivity&#39;: 0.48365923861954435},
+ {&#39;degree&#39;: 448,
+  &#39;density&#39;: 0.060732262703739215,
+  &#39;ego_betweenness&#39;: 0.7731290449051745,
+  &#39;pID&#39;: &#39;DP275&#39;,
+  &#39;transitivity&#39;: 0.4504059108432489},
+ {&#39;degree&#39;: 1111,
+  &#39;density&#39;: 0.09845525093049845,
+  &#39;ego_betweenness&#39;: 0.5816853554683916,
+  &#39;pID&#39;: &#39;DP27&#39;,
+  &#39;transitivity&#39;: 0.6257427328525229},
+ {&#39;degree&#39;: 913,
+  &#39;density&#39;: 0.11960281316654177,
+  &#39;ego_betweenness&#39;: 0.5472148423231066,
+  &#39;pID&#39;: &#39;DP281&#39;,
+  &#39;transitivity&#39;: 0.5322684629335296},
+ {&#39;degree&#39;: 1617,
+  &#39;density&#39;: 0.07301827121487658,
+  &#39;ego_betweenness&#39;: 0.6683613470195113,
+  &#39;pID&#39;: &#39;DP28&#39;,
+  &#39;transitivity&#39;: 0.4671211743418451},
+ {&#39;degree&#39;: 328,
+  &#39;density&#39;: 0.06647646751696874,
+  &#39;ego_betweenness&#39;: 0.7554357051649294,
+  &#39;pID&#39;: &#39;DP294&#39;,
+  &#39;transitivity&#39;: 0.45955385115817227},
+ {&#39;degree&#39;: 1102,
+  &#39;density&#39;: 0.05527560327107348,
+  &#39;ego_betweenness&#39;: 0.6438420289319283,
+  &#39;pID&#39;: &#39;DP2&#39;,
+  &#39;transitivity&#39;: 0.3764939664639697},
+ {&#39;degree&#39;: 451,
+  &#39;density&#39;: 0.1042719881744272,
+  &#39;ego_betweenness&#39;: 0.6791752966249771,
+  &#39;pID&#39;: &#39;DP312&#39;,
+  &#39;transitivity&#39;: 0.5553685381262622},
+ {&#39;degree&#39;: 232,
+  &#39;density&#39;: 0.13893864755933721,
+  &#39;ego_betweenness&#39;: 0.6575118858959071,
+  &#39;pID&#39;: &#39;DP317&#39;,
+  &#39;transitivity&#39;: 0.6378186908950828},
+ {&#39;degree&#39;: 162,
+  &#39;density&#39;: 0.061344988881220766,
+  &#39;ego_betweenness&#39;: 0.8743347791366036,
+  &#39;pID&#39;: &#39;DP319&#39;,
+  &#39;transitivity&#39;: 0.3644387386664527},
+ {&#39;degree&#39;: 1385,
+  &#39;density&#39;: 0.056520106007804514,
+  &#39;ego_betweenness&#39;: 0.7098761106091048,
+  &#39;pID&#39;: &#39;DP31&#39;,
+  &#39;transitivity&#39;: 0.45700060147719257},
+ {&#39;degree&#39;: 1396,
+  &#39;density&#39;: 0.13267810744472172,
+  &#39;ego_betweenness&#39;: 0.574103714100483,
+  &#39;pID&#39;: &#39;DP320&#39;,
+  &#39;transitivity&#39;: 0.603399027801065},
+ {&#39;degree&#39;: 1069,
+  &#39;density&#39;: 0.058168052329349774,
+  &#39;ego_betweenness&#39;: 0.7240874246226175,
+  &#39;pID&#39;: &#39;DP321&#39;,
+  &#39;transitivity&#39;: 0.4468227987430351},
+ {&#39;degree&#39;: 1070,
+  &#39;density&#39;: 0.05823592666742435,
+  &#39;ego_betweenness&#39;: 0.7235414161003747,
+  &#39;pID&#39;: &#39;DP322&#39;,
+  &#39;transitivity&#39;: 0.44679076290472786},
+ {&#39;degree&#39;: 1118,
+  &#39;density&#39;: 0.06310347644069615,
+  &#39;ego_betweenness&#39;: 0.7167628898834478,
+  &#39;pID&#39;: &#39;DP323&#39;,
+  &#39;transitivity&#39;: 0.5350816651489251},
+ {&#39;degree&#39;: 534,
+  &#39;density&#39;: 0.08326130798040911,
+  &#39;ego_betweenness&#39;: 0.719530077266941,
+  &#39;pID&#39;: &#39;DP324&#39;,
+  &#39;transitivity&#39;: 0.5582365015469921},
+ {&#39;degree&#39;: 560,
+  &#39;density&#39;: 0.17823281369792998,
+  &#39;ego_betweenness&#39;: 0.43119535910111867,
+  &#39;pID&#39;: &#39;DP325&#39;,
+  &#39;transitivity&#39;: 0.5696561703055827},
+ {&#39;degree&#39;: 1840,
+  &#39;density&#39;: 0.0975742960493652,
+  &#39;ego_betweenness&#39;: 0.5502131919729262,
+  &#39;pID&#39;: &#39;DP326&#39;,
+  &#39;transitivity&#39;: 0.4525632367346477},
+ {&#39;degree&#39;: 1438,
+  &#39;density&#39;: 0.07127834510739903,
+  &#39;ego_betweenness&#39;: 0.674363567354795,
+  &#39;pID&#39;: &#39;DP327&#39;,
+  &#39;transitivity&#39;: 0.44183284342221607},
+ {&#39;pID&#39;: &#39;DP328&#39;},
+ {&#39;pID&#39;: &#39;DP329&#39;},
+ {&#39;degree&#39;: 383,
+  &#39;density&#39;: 0.03321804984074474,
+  &#39;ego_betweenness&#39;: 0.8558645086143913,
+  &#39;pID&#39;: &#39;DP32&#39;,
+  &#39;transitivity&#39;: 0.21453545904343047},
+ {&#39;degree&#39;: 490,
+  &#39;density&#39;: 0.02414757313968532,
+  &#39;ego_betweenness&#39;: 0.8668252876812442,
+  &#39;pID&#39;: &#39;DP330&#39;,
+  &#39;transitivity&#39;: 0.19306645103076264},
+ {&#39;degree&#39;: 850,
+  &#39;density&#39;: 0.16609159564886025,
+  &#39;ego_betweenness&#39;: 0.5484853905960282,
+  &#39;pID&#39;: &#39;DP331&#39;,
+  &#39;transitivity&#39;: 0.6225881734620677},
+ {&#39;degree&#39;: 1227,
+  &#39;density&#39;: 0.1620592141737497,
+  &#39;ego_betweenness&#39;: 0.3951878626395387,
+  &#39;pID&#39;: &#39;DP332&#39;,
+  &#39;transitivity&#39;: 0.5533760310985261},
+ {&#39;degree&#39;: 312,
+  &#39;density&#39;: 0.10421304311979553,
+  &#39;ego_betweenness&#39;: 0.6278355967491278,
+  &#39;pID&#39;: &#39;DP333&#39;,
+  &#39;transitivity&#39;: 0.5541386870643293},
+ {&#39;degree&#39;: 402,
+  &#39;density&#39;: 0.14244240145903897,
+  &#39;ego_betweenness&#39;: 0.51805602433983,
+  &#39;pID&#39;: &#39;DP336&#39;,
+  &#39;transitivity&#39;: 0.5684257980217305},
+ {&#39;degree&#39;: 1638,
+  &#39;density&#39;: 0.07128797354820568,
+  &#39;ego_betweenness&#39;: 0.6714313384688276,
+  &#39;pID&#39;: &#39;DP337&#39;,
+  &#39;transitivity&#39;: 0.46341559470476024},
+ {&#39;degree&#39;: 113,
+  &#39;density&#39;: 0.10224399494310998,
+  &#39;ego_betweenness&#39;: 0.7657829985856403,
+  &#39;pID&#39;: &#39;DP338&#39;,
+  &#39;transitivity&#39;: 0.5322291610100461},
+ {&#39;degree&#39;: 355,
+  &#39;density&#39;: 0.12451659107185485,
+  &#39;ego_betweenness&#39;: 0.6308652782212514,
+  &#39;pID&#39;: &#39;DP339&#39;,
+  &#39;transitivity&#39;: 0.516260968798057},
+ {&#39;degree&#39;: 280,
+  &#39;density&#39;: 0.04503328213005632,
+  &#39;ego_betweenness&#39;: 0.8690037909545193,
+  &#39;pID&#39;: &#39;DP33&#39;,
+  &#39;transitivity&#39;: 0.3444420980386981},
+ {&#39;degree&#39;: 1009,
+  &#39;density&#39;: 0.09504538518413642,
+  &#39;ego_betweenness&#39;: 0.6685270415840479,
+  &#39;pID&#39;: &#39;DP340&#39;,
+  &#39;transitivity&#39;: 0.5326035990012628},
+ {&#39;degree&#39;: 625,
+  &#39;density&#39;: 0.0676051282051282,
+  &#39;ego_betweenness&#39;: 0.6742641812721063,
+  &#39;pID&#39;: &#39;DP341&#39;,
+  &#39;transitivity&#39;: 0.3761771493812864},
+ {&#39;degree&#39;: 447,
+  &#39;density&#39;: 0.07035443063372157,
+  &#39;ego_betweenness&#39;: 0.7979852822716482,
+  &#39;pID&#39;: &#39;DP343&#39;,
+  &#39;transitivity&#39;: 0.5329385531201498},
+ {&#39;degree&#39;: 1045,
+  &#39;density&#39;: 0.08049276797008194,
+  &#39;ego_betweenness&#39;: 0.7225843337175027,
+  &#39;pID&#39;: &#39;DP344&#39;,
+  &#39;transitivity&#39;: 0.5538736763074997},
+ {&#39;degree&#39;: 661,
+  &#39;density&#39;: 0.055008481180947144,
+  &#39;ego_betweenness&#39;: 0.777361113583714,
+  &#39;pID&#39;: &#39;DP345&#39;,
+  &#39;transitivity&#39;: 0.4000471963432532},
+ {&#39;degree&#39;: 321,
+  &#39;density&#39;: 0.1012266355140187,
+  &#39;ego_betweenness&#39;: 0.6338673940044607,
+  &#39;pID&#39;: &#39;DP347&#39;,
+  &#39;transitivity&#39;: 0.41263626062021524},
+ {&#39;degree&#39;: 1035,
+  &#39;density&#39;: 0.04745325596389426,
+  &#39;ego_betweenness&#39;: 0.7808611459093028,
+  &#39;pID&#39;: &#39;DP349&#39;,
+  &#39;transitivity&#39;: 0.43343578011289213},
+ {&#39;degree&#39;: 328,
+  &#39;density&#39;: 0.07281643917356605,
+  &#39;ego_betweenness&#39;: 0.7523602362624392,
+  &#39;pID&#39;: &#39;DP34&#39;,
+  &#39;transitivity&#39;: 0.42043111772227876},
+ {&#39;degree&#39;: 894,
+  &#39;density&#39;: 0.21412878190048876,
+  &#39;ego_betweenness&#39;: 0.2840211492028463,
+  &#39;pID&#39;: &#39;DP350&#39;,
+  &#39;transitivity&#39;: 0.5486297701627514},
+ {&#39;degree&#39;: 816,
+  &#39;density&#39;: 0.10667328281005654,
+  &#39;ego_betweenness&#39;: 0.5762959951246864,
+  &#39;pID&#39;: &#39;DP352&#39;,
+  &#39;transitivity&#39;: 0.5891169784335059},
+ {&#39;degree&#39;: 1797,
+  &#39;density&#39;: 0.04711638923075207,
+  &#39;ego_betweenness&#39;: 0.6901866448252905,
+  &#39;pID&#39;: &#39;DP353&#39;,
+  &#39;transitivity&#39;: 0.4277885159751451},
+ {&#39;degree&#39;: 753,
+  &#39;density&#39;: 0.17015978638636942,
+  &#39;ego_betweenness&#39;: 0.41757566628001486,
+  &#39;pID&#39;: &#39;DP355&#39;,
+  &#39;transitivity&#39;: 0.5952100197271811},
+ {&#39;degree&#39;: 462,
+  &#39;density&#39;: 0.10845047938323427,
+  &#39;ego_betweenness&#39;: 0.5399089399058353,
+  &#39;pID&#39;: &#39;DP356&#39;,
+  &#39;transitivity&#39;: 0.3969156487023216},
+ {&#39;degree&#39;: 221,
+  &#39;density&#39;: 0.15195392842451666,
+  &#39;ego_betweenness&#39;: 0.4983879005866303,
+  &#39;pID&#39;: &#39;DP357&#39;,
+  &#39;transitivity&#39;: 0.48672437198032376},
+ {&#39;degree&#39;: 705,
+  &#39;density&#39;: 0.025072533849129594,
+  &#39;ego_betweenness&#39;: 0.8740787320758222,
+  &#39;pID&#39;: &#39;DP358&#39;,
+  &#39;transitivity&#39;: 0.22708299782810235},
+ {&#39;degree&#39;: 499,
+  &#39;density&#39;: 0.11031701958133133,
+  &#39;ego_betweenness&#39;: 0.7027427948143872,
+  &#39;pID&#39;: &#39;DP35&#39;,
+  &#39;transitivity&#39;: 0.5954642851262704},
+ {&#39;degree&#39;: 327,
+  &#39;density&#39;: 0.06909814074782837,
+  &#39;ego_betweenness&#39;: 0.7455896652133386,
+  &#39;pID&#39;: &#39;DP361&#39;,
+  &#39;transitivity&#39;: 0.35936449614869476},
+ {&#39;degree&#39;: 436,
+  &#39;density&#39;: 0.04788569018243172,
+  &#39;ego_betweenness&#39;: 0.8403668493362724,
+  &#39;pID&#39;: &#39;DP362&#39;,
+  &#39;transitivity&#39;: 0.40692509800650595},
+ {&#39;degree&#39;: 305,
+  &#39;density&#39;: 0.17096635030198448,
+  &#39;ego_betweenness&#39;: 0.4200656382226063,
+  &#39;pID&#39;: &#39;DP363&#39;,
+  &#39;transitivity&#39;: 0.6096734424559536},
+ {&#39;degree&#39;: 630,
+  &#39;density&#39;: 0.16255583314406843,
+  &#39;ego_betweenness&#39;: 0.498583129857026,
+  &#39;pID&#39;: &#39;DP364&#39;,
+  &#39;transitivity&#39;: 0.5663330193816001},
+ {&#39;degree&#39;: 1406,
+  &#39;density&#39;: 0.06413489721225252,
+  &#39;ego_betweenness&#39;: 0.631696513707834,
+  &#39;pID&#39;: &#39;DP365&#39;,
+  &#39;transitivity&#39;: 0.5094011832087239},
+ {&#39;degree&#39;: 863,
+  &#39;density&#39;: 0.18896204628004076,
+  &#39;ego_betweenness&#39;: 0.3407220949894664,
+  &#39;pID&#39;: &#39;DP366&#39;,
+  &#39;transitivity&#39;: 0.6241010959172045},
+ {&#39;degree&#39;: 566,
+  &#39;density&#39;: 0.08287938959942462,
+  &#39;ego_betweenness&#39;: 0.6433337223564871,
+  &#39;pID&#39;: &#39;DP368&#39;,
+  &#39;transitivity&#39;: 0.40283104713284124},
+ {&#39;degree&#39;: 2543,
+  &#39;density&#39;: 0.10028516595594329,
+  &#39;ego_betweenness&#39;: 0.2666227832813729,
+  &#39;pID&#39;: &#39;DP369&#39;,
+  &#39;transitivity&#39;: 0.40164738626078444},
+ {&#39;degree&#39;: 543,
+  &#39;density&#39;: 0.08627754785835151,
+  &#39;ego_betweenness&#39;: 0.5406514179490598,
+  &#39;pID&#39;: &#39;DP36&#39;,
+  &#39;transitivity&#39;: 0.3628573130334783},
+ {&#39;degree&#39;: 784,
+  &#39;density&#39;: 0.15395391873224384,
+  &#39;ego_betweenness&#39;: 0.603376099469748,
+  &#39;pID&#39;: &#39;DP370&#39;,
+  &#39;transitivity&#39;: 0.6618478855952894},
+ {&#39;degree&#39;: 539,
+  &#39;density&#39;: 0.1526508541909498,
+  &#39;ego_betweenness&#39;: 0.6254623262961703,
+  &#39;pID&#39;: &#39;DP371&#39;,
+  &#39;transitivity&#39;: 0.651221985629137},
+ {&#39;degree&#39;: 1220,
+  &#39;density&#39;: 0.10406272273699216,
+  &#39;ego_betweenness&#39;: 0.51273447623271,
+  &#39;pID&#39;: &#39;DP372&#39;,
+  &#39;transitivity&#39;: 0.49876899098594935},
+ {&#39;degree&#39;: 1405,
+  &#39;density&#39;: 0.05009986718171772,
+  &#39;ego_betweenness&#39;: 0.7157296117500912,
+  &#39;pID&#39;: &#39;DP373&#39;,
+  &#39;transitivity&#39;: 0.37152943575464575},
+ {&#39;degree&#39;: 228,
+  &#39;density&#39;: 0.16705309529329931,
+  &#39;ego_betweenness&#39;: 0.5779509648092557,
+  &#39;pID&#39;: &#39;DP374&#39;,
+  &#39;transitivity&#39;: 0.5791375217930136},
+ {&#39;degree&#39;: 701,
+  &#39;density&#39;: 0.07389036070919096,
+  &#39;ego_betweenness&#39;: 0.618877347954365,
+  &#39;pID&#39;: &#39;DP376&#39;,
+  &#39;transitivity&#39;: 0.4356714960592088},
+ {&#39;degree&#39;: 519,
+  &#39;density&#39;: 0.16048087724388302,
+  &#39;ego_betweenness&#39;: 0.4422635345080738,
+  &#39;pID&#39;: &#39;DP378&#39;,
+  &#39;transitivity&#39;: 0.6110541083922032},
+ {&#39;degree&#39;: 1014,
+  &#39;density&#39;: 0.0718120060515079,
+  &#39;ego_betweenness&#39;: 0.7033428923323598,
+  &#39;pID&#39;: &#39;DP379&#39;,
+  &#39;transitivity&#39;: 0.48126606556868234},
+ {&#39;degree&#39;: 357,
+  &#39;density&#39;: 0.044975293488181786,
+  &#39;ego_betweenness&#39;: 0.8840896075219004,
+  &#39;pID&#39;: &#39;DP37&#39;,
+  &#39;transitivity&#39;: 0.36198028715355235}]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [216]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_data[-25:]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[216]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[{&#39;degree&#39;: 9,
+  &#39;density&#39;: 0.08333333333333333,
+  &#39;ego_betweenness&#39;: 0.9027777777777777,
+  &#39;pID&#39;: &#39;DP197&#39;,
+  &#39;transitivity&#39;: 0.20930232558139536},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 689,
+  &#39;density&#39;: 0.07831116886623687,
+  &#39;ego_betweenness&#39;: 0.7237841514295779,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.5553206977514312},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 911,
+  &#39;density&#39;: 0.12717578798808218,
+  &#39;ego_betweenness&#39;: 0.5624959802443567,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.6067457196721634},
+ {&#39;degree&#39;: 521,
+  &#39;density&#39;: 0.2579063930311531,
+  &#39;ego_betweenness&#39;: 0.4195328827618402,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.6655407473014725},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 289,
+  &#39;density&#39;: 0.046592656670511344,
+  &#39;ego_betweenness&#39;: 0.7779542090244802,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.24654375313318108},
+ {&#39;degree&#39;: 2,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 1.0,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 570,
+  &#39;density&#39;: 0.192421299293929,
+  &#39;ego_betweenness&#39;: 0.18364330153753333,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.4487652780631966},
+ {&#39;degree&#39;: 2,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 1.0,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 651,
+  &#39;density&#39;: 0.17567292922131633,
+  &#39;ego_betweenness&#39;: 0.46486457851890695,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.5514842240563366},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 540,
+  &#39;density&#39;: 0.046766989624132484,
+  &#39;ego_betweenness&#39;: 0.7833312621798403,
+  &#39;pID&#39;: &#39;data/facebook&#39;,
+  &#39;transitivity&#39;: 0.32685716659627356}]
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [224]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>for p, item in zip(fb_nets[76:100], fb_data[-24:]):
+    item.update({&#39;pID&#39;:p.split(&#39;_&#39;)[0]})
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [225]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_data
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[225]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[{&#39;degree&#39;: 468,
+  &#39;density&#39;: 0.08088544812313549,
+  &#39;ego_betweenness&#39;: 0.7262674686430834,
+  &#39;pID&#39;: &#39;DP100&#39;,
+  &#39;transitivity&#39;: 0.5364525647102011},
+ {&#39;degree&#39;: 2079,
+  &#39;density&#39;: 0.06416935290852518,
+  &#39;ego_betweenness&#39;: 0.5318205993307643,
+  &#39;pID&#39;: &#39;DP101&#39;,
+  &#39;transitivity&#39;: 0.4168483249123906},
+ {&#39;degree&#39;: 253,
+  &#39;density&#39;: 0.044513457556935816,
+  &#39;ego_betweenness&#39;: 0.8605796763477027,
+  &#39;pID&#39;: &#39;DP103&#39;,
+  &#39;transitivity&#39;: 0.26478074938908497},
+ {&#39;degree&#39;: 4,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 1.0,
+  &#39;pID&#39;: &#39;DP106&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 610,
+  &#39;density&#39;: 0.1251393038843576,
+  &#39;ego_betweenness&#39;: 0.58910135878483,
+  &#39;pID&#39;: &#39;DP107&#39;,
+  &#39;transitivity&#39;: 0.5400648276557226},
+ {&#39;degree&#39;: 510,
+  &#39;density&#39;: 0.10005778342771293,
+  &#39;ego_betweenness&#39;: 0.6076309173610341,
+  &#39;pID&#39;: &#39;DP10&#39;,
+  &#39;transitivity&#39;: 0.49069211423737197},
+ {&#39;degree&#39;: 33,
+  &#39;density&#39;: 0.06818181818181818,
+  &#39;ego_betweenness&#39;: 0.8443813131313133,
+  &#39;pID&#39;: &#39;DP110&#39;,
+  &#39;transitivity&#39;: 0.18951612903225806},
+ {&#39;degree&#39;: 500,
+  &#39;density&#39;: 0.23638476953907817,
+  &#39;ego_betweenness&#39;: 0.3974277656679657,
+  &#39;pID&#39;: &#39;DP111&#39;,
+  &#39;transitivity&#39;: 0.5954329677524963},
+ {&#39;degree&#39;: 338,
+  &#39;density&#39;: 0.07790634382736643,
+  &#39;ego_betweenness&#39;: 0.7829394464675404,
+  &#39;pID&#39;: &#39;DP113&#39;,
+  &#39;transitivity&#39;: 0.49984811176115307},
+ {&#39;degree&#39;: 448,
+  &#39;density&#39;: 0.12650806967082134,
+  &#39;ego_betweenness&#39;: 0.5388989289785325,
+  &#39;pID&#39;: &#39;DP115&#39;,
+  &#39;transitivity&#39;: 0.4856014566558911},
+ {&#39;degree&#39;: 418,
+  &#39;density&#39;: 0.07175886085390061,
+  &#39;ego_betweenness&#39;: 0.6721401412900484,
+  &#39;pID&#39;: &#39;DP116&#39;,
+  &#39;transitivity&#39;: 0.37540389069454905},
+ {&#39;degree&#39;: 1137,
+  &#39;density&#39;: 0.12112428307753292,
+  &#39;ego_betweenness&#39;: 0.5944756447084822,
+  &#39;pID&#39;: &#39;DP117&#39;,
+  &#39;transitivity&#39;: 0.6208411110188786},
+ {&#39;degree&#39;: 458,
+  &#39;density&#39;: 0.06781458725502375,
+  &#39;ego_betweenness&#39;: 0.7427616733061663,
+  &#39;pID&#39;: &#39;DP118&#39;,
+  &#39;transitivity&#39;: 0.40111920859752254},
+ {&#39;degree&#39;: 147,
+  &#39;density&#39;: 0.07296617277047805,
+  &#39;ego_betweenness&#39;: 0.671193337853138,
+  &#39;pID&#39;: &#39;DP119&#39;,
+  &#39;transitivity&#39;: 0.3231850117096019},
+ {&#39;degree&#39;: 1103,
+  &#39;density&#39;: 0.0786059468237919,
+  &#39;ego_betweenness&#39;: 0.6102054136145055,
+  &#39;pID&#39;: &#39;DP11&#39;,
+  &#39;transitivity&#39;: 0.5897259105452732},
+ {&#39;degree&#39;: 155,
+  &#39;density&#39;: 0.10800167574361123,
+  &#39;ego_betweenness&#39;: 0.7513431624078922,
+  &#39;pID&#39;: &#39;DP120&#39;,
+  &#39;transitivity&#39;: 0.4657156715759767},
+ {&#39;degree&#39;: 155,
+  &#39;density&#39;: 0.10800167574361123,
+  &#39;ego_betweenness&#39;: 0.7513431624078922,
+  &#39;pID&#39;: &#39;DP121&#39;,
+  &#39;transitivity&#39;: 0.4657156715759767},
+ {&#39;degree&#39;: 421,
+  &#39;density&#39;: 0.04465558194774347,
+  &#39;ego_betweenness&#39;: 0.8611614013404926,
+  &#39;pID&#39;: &#39;DP122&#39;,
+  &#39;transitivity&#39;: 0.42794400725722587},
+ {&#39;degree&#39;: 16,
+  &#39;density&#39;: 0.10833333333333334,
+  &#39;ego_betweenness&#39;: 0.8333333333333334,
+  &#39;pID&#39;: &#39;DP123&#39;,
+  &#39;transitivity&#39;: 0.24375},
+ {&#39;degree&#39;: 16,
+  &#39;density&#39;: 0.10833333333333334,
+  &#39;ego_betweenness&#39;: 0.8333333333333334,
+  &#39;pID&#39;: &#39;DP124&#39;,
+  &#39;transitivity&#39;: 0.24375},
+ {&#39;degree&#39;: 54,
+  &#39;density&#39;: 0.5925925925925926,
+  &#39;ego_betweenness&#39;: 0.0703733743746591,
+  &#39;pID&#39;: &#39;DP127&#39;,
+  &#39;transitivity&#39;: 0.7106823979591836},
+ {&#39;degree&#39;: 685,
+  &#39;density&#39;: 0.11227643317539591,
+  &#39;ego_betweenness&#39;: 0.5696809353489829,
+  &#39;pID&#39;: &#39;DP128&#39;,
+  &#39;transitivity&#39;: 0.5672156004441228},
+ {&#39;degree&#39;: 739,
+  &#39;density&#39;: 0.07575607555804922,
+  &#39;ego_betweenness&#39;: 0.567757744772665,
+  &#39;pID&#39;: &#39;DP129&#39;,
+  &#39;transitivity&#39;: 0.37923662577331757},
+ {&#39;degree&#39;: 1062,
+  &#39;density&#39;: 0.0678800335823611,
+  &#39;ego_betweenness&#39;: 0.627619085193079,
+  &#39;pID&#39;: &#39;DP12&#39;,
+  &#39;transitivity&#39;: 0.40025893095330584},
+ {&#39;degree&#39;: 1548,
+  &#39;density&#39;: 0.06780398504064715,
+  &#39;ego_betweenness&#39;: 0.6896329242368896,
+  &#39;pID&#39;: &#39;DP134&#39;,
+  &#39;transitivity&#39;: 0.5754030636755987},
+ {&#39;degree&#39;: 309,
+  &#39;density&#39;: 0.10440045391501702,
+  &#39;ego_betweenness&#39;: 0.6311684076662865,
+  &#39;pID&#39;: &#39;DP137&#39;,
+  &#39;transitivity&#39;: 0.5563954544537069},
+ {&#39;degree&#39;: 580,
+  &#39;density&#39;: 0.0743136203918766,
+  &#39;ego_betweenness&#39;: 0.7411812846078464,
+  &#39;pID&#39;: &#39;DP138&#39;,
+  &#39;transitivity&#39;: 0.48985063438011556},
+ {&#39;degree&#39;: 591,
+  &#39;density&#39;: 0.12799908227938858,
+  &#39;ego_betweenness&#39;: 0.6364786097219359,
+  &#39;pID&#39;: &#39;DP139&#39;,
+  &#39;transitivity&#39;: 0.5665622538686064},
+ {&#39;degree&#39;: 825,
+  &#39;density&#39;: 0.0949161518093557,
+  &#39;ego_betweenness&#39;: 0.6020584086163108,
+  &#39;pID&#39;: &#39;DP140&#39;,
+  &#39;transitivity&#39;: 0.5490839862923672},
+ {&#39;degree&#39;: 445,
+  &#39;density&#39;: 0.13655228261969835,
+  &#39;ego_betweenness&#39;: 0.6633192692297355,
+  &#39;pID&#39;: &#39;DP141&#39;,
+  &#39;transitivity&#39;: 0.6289421548037106},
+ {&#39;degree&#39;: 716,
+  &#39;density&#39;: 0.07463374614212603,
+  &#39;ego_betweenness&#39;: 0.7184846937416451,
+  &#39;pID&#39;: &#39;DP143&#39;,
+  &#39;transitivity&#39;: 0.48985185082602667},
+ {&#39;degree&#39;: 1387,
+  &#39;density&#39;: 0.04471847946974119,
+  &#39;ego_betweenness&#39;: 0.7328737156298069,
+  &#39;pID&#39;: &#39;DP144&#39;,
+  &#39;transitivity&#39;: 0.3679787986783621},
+ {&#39;degree&#39;: 4,
+  &#39;density&#39;: 0.16666666666666666,
+  &#39;ego_betweenness&#39;: 0.8333333333333333,
+  &#39;pID&#39;: &#39;DP145&#39;,
+  &#39;transitivity&#39;: 0.375},
+ {&#39;degree&#39;: 16,
+  &#39;density&#39;: 0.05,
+  &#39;ego_betweenness&#39;: 0.9249999999999999,
+  &#39;pID&#39;: &#39;DP146&#39;,
+  &#39;transitivity&#39;: 0.13043478260869565},
+ {&#39;degree&#39;: 844,
+  &#39;density&#39;: 0.08619914208452098,
+  &#39;ego_betweenness&#39;: 0.7831469422722794,
+  &#39;pID&#39;: &#39;DP147&#39;,
+  &#39;transitivity&#39;: 0.5836245672490876},
+ {&#39;degree&#39;: 2,
+  &#39;density&#39;: 1.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP149&#39;,
+  &#39;transitivity&#39;: 1.0},
+ {&#39;degree&#39;: 572,
+  &#39;density&#39;: 0.10365203972909752,
+  &#39;ego_betweenness&#39;: 0.7335775907725677,
+  &#39;pID&#39;: &#39;DP14&#39;,
+  &#39;transitivity&#39;: 0.6982020128815537},
+ {&#39;degree&#39;: 2,
+  &#39;density&#39;: 1.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP150&#39;,
+  &#39;transitivity&#39;: 1.0},
+ {&#39;degree&#39;: 371,
+  &#39;density&#39;: 0.08080425438916004,
+  &#39;ego_betweenness&#39;: 0.681423265207321,
+  &#39;pID&#39;: &#39;DP151&#39;,
+  &#39;transitivity&#39;: 0.408017179670723},
+ {&#39;degree&#39;: 75,
+  &#39;density&#39;: 0.018378378378378378,
+  &#39;ego_betweenness&#39;: 0.944054054054054,
+  &#39;pID&#39;: &#39;DP152&#39;,
+  &#39;transitivity&#39;: 0.05134000645786245},
+ {&#39;degree&#39;: 440,
+  &#39;density&#39;: 0.08027541934147857,
+  &#39;ego_betweenness&#39;: 0.7504493123817759,
+  &#39;pID&#39;: &#39;DP153&#39;,
+  &#39;transitivity&#39;: 0.49398980065572357},
+ {&#39;degree&#39;: 439,
+  &#39;density&#39;: 0.2548756513870253,
+  &#39;ego_betweenness&#39;: 0.38663089821579744,
+  &#39;pID&#39;: &#39;DP154&#39;,
+  &#39;transitivity&#39;: 0.7005467462265116},
+ {&#39;degree&#39;: 321,
+  &#39;density&#39;: 0.07231308411214954,
+  &#39;ego_betweenness&#39;: 0.731046562976361,
+  &#39;pID&#39;: &#39;DP156&#39;,
+  &#39;transitivity&#39;: 0.3941090730665435},
+ {&#39;degree&#39;: 858,
+  &#39;density&#39;: 0.23286903683636473,
+  &#39;ego_betweenness&#39;: 0.269284036867207,
+  &#39;pID&#39;: &#39;DP157&#39;,
+  &#39;transitivity&#39;: 0.5772058203017074},
+ {&#39;degree&#39;: 533,
+  &#39;density&#39;: 0.1395279944702281,
+  &#39;ego_betweenness&#39;: 0.5149566326248249,
+  &#39;pID&#39;: &#39;DP158&#39;,
+  &#39;transitivity&#39;: 0.5649090182924358},
+ {&#39;degree&#39;: 546,
+  &#39;density&#39;: 0.18753234533051047,
+  &#39;ego_betweenness&#39;: 0.3902795568240951,
+  &#39;pID&#39;: &#39;DP159&#39;,
+  &#39;transitivity&#39;: 0.5591630452076632},
+ {&#39;degree&#39;: 788,
+  &#39;density&#39;: 0.12255626003779695,
+  &#39;ego_betweenness&#39;: 0.5576008327774975,
+  &#39;pID&#39;: &#39;DP161&#39;,
+  &#39;transitivity&#39;: 0.530121488533756},
+ {&#39;degree&#39;: 1272,
+  &#39;density&#39;: 0.10937507731741955,
+  &#39;ego_betweenness&#39;: 0.5892969835704606,
+  &#39;pID&#39;: &#39;DP162&#39;,
+  &#39;transitivity&#39;: 0.5882272630192262},
+ {&#39;degree&#39;: 277,
+  &#39;density&#39;: 0.08737508502066656,
+  &#39;ego_betweenness&#39;: 0.70290424337617,
+  &#39;pID&#39;: &#39;DP163&#39;,
+  &#39;transitivity&#39;: 0.4030994071418723},
+ {&#39;degree&#39;: 704,
+  &#39;density&#39;: 0.15201894478210268,
+  &#39;ego_betweenness&#39;: 0.25828208438761985,
+  &#39;pID&#39;: &#39;DP164&#39;,
+  &#39;transitivity&#39;: 0.44794925068457403},
+ {&#39;degree&#39;: 535,
+  &#39;density&#39;: 0.048304105848997164,
+  &#39;ego_betweenness&#39;: 0.8219013927266205,
+  &#39;pID&#39;: &#39;DP165&#39;,
+  &#39;transitivity&#39;: 0.5055557895116801},
+ {&#39;degree&#39;: 878,
+  &#39;density&#39;: 0.05507749290265271,
+  &#39;ego_betweenness&#39;: 0.7090708922993648,
+  &#39;pID&#39;: &#39;DP167&#39;,
+  &#39;transitivity&#39;: 0.3719901734494563},
+ {&#39;degree&#39;: 927,
+  &#39;density&#39;: 0.11644427669087444,
+  &#39;ego_betweenness&#39;: 0.5469383612528186,
+  &#39;pID&#39;: &#39;DP16&#39;,
+  &#39;transitivity&#39;: 0.5047909520115059},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP170&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 10,
+  &#39;density&#39;: 0.17777777777777778,
+  &#39;ego_betweenness&#39;: 0.7333333333333334,
+  &#39;pID&#39;: &#39;DP171&#39;,
+  &#39;transitivity&#39;: 0.38961038961038963},
+ {&#39;degree&#39;: 567,
+  &#39;density&#39;: 0.06763014065723136,
+  &#39;ego_betweenness&#39;: 0.6887361373198078,
+  &#39;pID&#39;: &#39;DP172&#39;,
+  &#39;transitivity&#39;: 0.3728741588243155},
+ {&#39;degree&#39;: 948,
+  &#39;density&#39;: 0.08583178502844871,
+  &#39;ego_betweenness&#39;: 0.6457253379054373,
+  &#39;pID&#39;: &#39;DP173&#39;,
+  &#39;transitivity&#39;: 0.47760004631412184},
+ {&#39;degree&#39;: 1836,
+  &#39;density&#39;: 0.09807602120472773,
+  &#39;ego_betweenness&#39;: 0.5490265312818724,
+  &#39;pID&#39;: &#39;DP175&#39;,
+  &#39;transitivity&#39;: 0.45303617756015446},
+ {&#39;degree&#39;: 826,
+  &#39;density&#39;: 0.0720962653166043,
+  &#39;ego_betweenness&#39;: 0.573646256821444,
+  &#39;pID&#39;: &#39;DP176&#39;,
+  &#39;transitivity&#39;: 0.4568938218541195},
+ {&#39;degree&#39;: 1892,
+  &#39;density&#39;: 0.08694517146425206,
+  &#39;ego_betweenness&#39;: 0.5564821011147988,
+  &#39;pID&#39;: &#39;DP17&#39;,
+  &#39;transitivity&#39;: 0.5482340371671511},
+ {&#39;degree&#39;: 454,
+  &#39;density&#39;: 0.11654073188046406,
+  &#39;ego_betweenness&#39;: 0.5928104329311953,
+  &#39;pID&#39;: &#39;DP182&#39;,
+  &#39;transitivity&#39;: 0.5121383920883966},
+ {&#39;degree&#39;: 50,
+  &#39;density&#39;: 0.08979591836734693,
+  &#39;ego_betweenness&#39;: 0.775925170068027,
+  &#39;pID&#39;: &#39;DP183&#39;,
+  &#39;transitivity&#39;: 0.2746090156393744},
+ {&#39;degree&#39;: 1067,
+  &#39;density&#39;: 0.0514830907086376,
+  &#39;ego_betweenness&#39;: 0.7381411923493747,
+  &#39;pID&#39;: &#39;DP184&#39;,
+  &#39;transitivity&#39;: 0.3962027035001933},
+ {&#39;degree&#39;: 424,
+  &#39;density&#39;: 0.0907154645613096,
+  &#39;ego_betweenness&#39;: 0.6996269438258774,
+  &#39;pID&#39;: &#39;DP185&#39;,
+  &#39;transitivity&#39;: 0.533375971403289},
+ {&#39;degree&#39;: 1004,
+  &#39;density&#39;: 0.14524355221189023,
+  &#39;ego_betweenness&#39;: 0.4793911159267998,
+  &#39;pID&#39;: &#39;DP186&#39;,
+  &#39;transitivity&#39;: 0.5924738908923688},
+ {&#39;degree&#39;: 531,
+  &#39;density&#39;: 0.12305724336424688,
+  &#39;ego_betweenness&#39;: 0.5869405912634565,
+  &#39;pID&#39;: &#39;DP187&#39;,
+  &#39;transitivity&#39;: 0.515179245464914},
+ {&#39;degree&#39;: 957,
+  &#39;density&#39;: 0.10403413736266139,
+  &#39;ego_betweenness&#39;: 0.5009189839451806,
+  &#39;pID&#39;: &#39;DP188&#39;,
+  &#39;transitivity&#39;: 0.4793250751667296},
+ {&#39;degree&#39;: 957,
+  &#39;density&#39;: 0.10403413736266139,
+  &#39;ego_betweenness&#39;: 0.5009189839451806,
+  &#39;pID&#39;: &#39;DP188&#39;,
+  &#39;transitivity&#39;: 0.4793250751667296},
+ {&#39;pID&#39;: &#39;DP189&#39;},
+ {&#39;degree&#39;: 310,
+  &#39;density&#39;: 0.12226746006890073,
+  &#39;ego_betweenness&#39;: 0.5800565254004239,
+  &#39;pID&#39;: &#39;DP190&#39;,
+  &#39;transitivity&#39;: 0.61376442178696},
+ {&#39;degree&#39;: 416,
+  &#39;density&#39;: 0.19811167747914735,
+  &#39;ego_betweenness&#39;: 0.3947325709971868,
+  &#39;pID&#39;: &#39;DP191&#39;,
+  &#39;transitivity&#39;: 0.6724785915486595},
+ {&#39;degree&#39;: 1904,
+  &#39;density&#39;: 0.060406611409671594,
+  &#39;ego_betweenness&#39;: 0.755101462071982,
+  &#39;pID&#39;: &#39;DP192&#39;,
+  &#39;transitivity&#39;: 0.5129379998289729},
+ {&#39;degree&#39;: 866,
+  &#39;density&#39;: 0.06433138875168538,
+  &#39;ego_betweenness&#39;: 0.7061643509714209,
+  &#39;pID&#39;: &#39;DP193&#39;,
+  &#39;transitivity&#39;: 0.4483165847754836},
+ {&#39;degree&#39;: 649,
+  &#39;density&#39;: 0.1734292073275124,
+  &#39;ego_betweenness&#39;: 0.616543131827743,
+  &#39;pID&#39;: &#39;DP194&#39;,
+  &#39;transitivity&#39;: 0.678408142665688},
+ {&#39;degree&#39;: 649,
+  &#39;density&#39;: 0.1734292073275124,
+  &#39;ego_betweenness&#39;: 0.616543131827743,
+  &#39;pID&#39;: &#39;DP195&#39;,
+  &#39;transitivity&#39;: 0.678408142665688},
+ {&#39;degree&#39;: 9,
+  &#39;density&#39;: 0.08333333333333333,
+  &#39;ego_betweenness&#39;: 0.9027777777777777,
+  &#39;pID&#39;: &#39;DP196&#39;,
+  &#39;transitivity&#39;: 0.20930232558139536},
+ {&#39;degree&#39;: 9,
+  &#39;density&#39;: 0.08333333333333333,
+  &#39;ego_betweenness&#39;: 0.9027777777777777,
+  &#39;pID&#39;: &#39;DP197&#39;,
+  &#39;transitivity&#39;: 0.20930232558139536},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;DP198&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 689,
+  &#39;density&#39;: 0.07831116886623687,
+  &#39;ego_betweenness&#39;: 0.7237841514295779,
+  &#39;pID&#39;: &#39;DP1&#39;,
+  &#39;transitivity&#39;: 0.5553206977514312},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;DP201&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;DP202&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;DP203&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;DP204&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;DP207&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 5,
+  &#39;density&#39;: 0.1,
+  &#39;ego_betweenness&#39;: 0.9,
+  &#39;pID&#39;: &#39;DP208&#39;,
+  &#39;transitivity&#39;: 0.25},
+ {&#39;degree&#39;: 911,
+  &#39;density&#39;: 0.12717578798808218,
+  &#39;ego_betweenness&#39;: 0.5624959802443567,
+  &#39;pID&#39;: &#39;DP209&#39;,
+  &#39;transitivity&#39;: 0.6067457196721634},
+ {&#39;degree&#39;: 521,
+  &#39;density&#39;: 0.2579063930311531,
+  &#39;ego_betweenness&#39;: 0.4195328827618402,
+  &#39;pID&#39;: &#39;DP210&#39;,
+  &#39;transitivity&#39;: 0.6655407473014725},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP211&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP212&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP213&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP214&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP215&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP216&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP217&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 289,
+  &#39;density&#39;: 0.046592656670511344,
+  &#39;ego_betweenness&#39;: 0.7779542090244802,
+  &#39;pID&#39;: &#39;DP218&#39;,
+  &#39;transitivity&#39;: 0.24654375313318108},
+ {&#39;degree&#39;: 2,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 1.0,
+  &#39;pID&#39;: &#39;DP219&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 570,
+  &#39;density&#39;: 0.192421299293929,
+  &#39;ego_betweenness&#39;: 0.18364330153753333,
+  &#39;pID&#39;: &#39;DP21&#39;,
+  &#39;transitivity&#39;: 0.4487652780631966},
+ {&#39;degree&#39;: 2,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 1.0,
+  &#39;pID&#39;: &#39;DP220&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 651,
+  &#39;density&#39;: 0.17567292922131633,
+  &#39;ego_betweenness&#39;: 0.46486457851890695,
+  &#39;pID&#39;: &#39;DP221&#39;,
+  &#39;transitivity&#39;: 0.5514842240563366},
+ {&#39;degree&#39;: 1,
+  &#39;density&#39;: 0.0,
+  &#39;ego_betweenness&#39;: 0.0,
+  &#39;pID&#39;: &#39;DP222&#39;,
+  &#39;transitivity&#39;: 0.0},
+ {&#39;degree&#39;: 540,
+  &#39;density&#39;: 0.046766989624132484,
+  &#39;ego_betweenness&#39;: 0.7833312621798403,
+  &#39;pID&#39;: &#39;DP223&#39;,
+  &#39;transitivity&#39;: 0.32685716659627356}]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [226]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>tdata[0]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[226]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>{&#39;degree&#39;: 377,
+ &#39;density&#39;: 0.08057734635137423,
+ &#39;ego_betweenness&#39;: 0.7000664971953652,
+ &#39;pID&#39;: &#39;DP224&#39;,
+ &#39;transitivity&#39;: 0.4854969347804349}
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [227]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fb_data.extend(tdata)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [237]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>build_network(os.path.join(&#39;data&#39;,&#39;facebook_networks&#39;,fb_nets[76]))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Processing DP198
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[237]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>{&#39;degree&#39;: 5,
+ &#39;density&#39;: 0.1,
+ &#39;ego_betweenness&#39;: 0.9,
+ &#39;pID&#39;: &#39;DP198&#39;,
+ &#39;transitivity&#39;: 0.25}
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">Notes, examples, tutorials and ideas for computational social sicnce with a strong Pythonic flavor!</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, mbod &amp; rschmaelzle.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+    </div>
+  </body>
+</html>
