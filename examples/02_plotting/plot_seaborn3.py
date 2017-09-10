@@ -1,3 +1,11 @@
+'''
+Another plotting example
+========================
+
+* this is what this is for
+
+'''
+
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
