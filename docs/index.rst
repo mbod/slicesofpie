@@ -3,31 +3,33 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. rubric::
-   Notes, examples, tutorials and ideas for computational social sicnce with a strong Pythonic flavor!
+.. topic:: slicesofpie
 
-Maintained by Matt O'Donnell (`mbod <https://github.com/mbod>`_) & Ralf Schmälzle (`rschmaelzle <https://github.com/rschmaelzle>`_)
+   Notes, examples, tutorials and ideas for computational social science with a strong Pythonic flavor!
+
+   Maintained by Matt O'Donnell (`mbod <https://github.com/mbod>`_) & Ralf Schmälzle (`rschmaelzle <https://github.com/rschmaelzle>`_)
+
 
 .. container::
 
-   slicesofpie is an evolving set of resources for use in computational social science..
-
-.. note::
-   THIS IS AN IMPORTANT NOTE
+   **slicesofpie** is an evolving set of resources for use in computational social science.
 
 .. todo::
-   add a description of scope of site
+   * add a description of scope of site
+   * more stuff
+   
 
+.. topic:: Example topic
+
+   Topic text here
 
 
 Contents:
 
 .. toctree::
    :maxdepth: 1
+   :titlesonly:
+   :numbered:
 
    includeme
-
-
-
-
-
+   auto_examples/index
